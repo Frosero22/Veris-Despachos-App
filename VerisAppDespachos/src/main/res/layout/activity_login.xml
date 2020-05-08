@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/fondo"
     tools:context=".Login">
 
     <LinearLayout
@@ -15,15 +16,15 @@
         >
 
         <ImageView
-            android:layout_width="261dp"
-            android:layout_height="220dp"
+            android:layout_width="296dp"
+            android:layout_height="219dp"
             android:layout_gravity="center"
             android:src="@drawable/veris" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bienvenido"
-            android:textColor="#2979FF"
+            android:text="Bienvenidos"
+            android:textColor="@color/azulveris"
             android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"

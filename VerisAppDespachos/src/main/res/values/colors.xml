@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FAFAFA</color>
     <color name="azulveris">#01579B</color>
+    <color name="nodisponible">#BDBDBD</color>
+    <color name="fondo">#FAFAFA</color>
 </resources>

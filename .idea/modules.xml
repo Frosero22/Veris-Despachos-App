@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidGridLayout.iml" filepath="$PROJECT_DIR$/AndroidGridLayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/Codigos Abiertos-AndroidGridLayout.iml" filepath="$PROJECT_DIR$/Codigos Abiertos-AndroidGridLayout.iml" group="AndroidGridLayout" />
-      <module fileurl="file://$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" filepath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" group="AndroidGridLayout/VerisAppDespachos" />
+      <module fileurl="file://$PROJECT_DIR$/Veris-Despachos-App.iml" filepath="$PROJECT_DIR$/Veris-Despachos-App.iml" group="Veris-Despachos-App" />
+      <module fileurl="file://$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" filepath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" group="Veris-Despachos-App/VerisAppDespachos" />
       <module fileurl="file://$PROJECT_DIR$/VerisAppDespachos/app.iml" filepath="$PROJECT_DIR$/VerisAppDespachos/app.iml" />
     </modules>
   </component>
