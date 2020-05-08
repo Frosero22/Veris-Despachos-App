@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidGridLayout.iml" filepath="$PROJECT_DIR$/AndroidGridLayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Codigos Abiertos-AndroidGridLayout.iml" filepath="$PROJECT_DIR$/Codigos Abiertos-AndroidGridLayout.iml" group="AndroidGridLayout" />
+      <module fileurl="file://$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" filepath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" group="AndroidGridLayout/VerisAppDespachos" />
+      <module fileurl="file://$PROJECT_DIR$/VerisAppDespachos/app.iml" filepath="$PROJECT_DIR$/VerisAppDespachos/app.iml" />
+    </modules>
+  </component>
+</project>
