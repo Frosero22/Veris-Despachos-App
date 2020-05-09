@@ -10,16 +10,21 @@
       </config>
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="290615ca-ec24-409b-975e-ba7c27f3df4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Veris-Despachos-App.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxhdpi/despachos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxhdpi/icono_facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxhdpi/icono_ig.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxhdpi/icono_youtube.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_12_1_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_15_0_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/androidTest/java/ServiciosWeb/WSVeris.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/androidTest/java/Utils/GenericUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterDir="false" />
@@ -27,12 +32,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_pantalla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_pantalla.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,16 +58,26 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1bd5bQ4EkYOVYraM5b9ZI6K4hX4" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxhdpi" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxhdpi" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/VerisAppDespachos/src/androidTest/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PSMOBILE_OFICIAL/PSMobile Oficial" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Utils" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\drawable-xxhdpi" />
       <recent name="C:\workspaces\Android\Codigos Abiertos\AndroidGridLayout\app\src\main\res\layout-large" />
@@ -154,6 +169,14 @@
       <option name="presentableId" value="Default" />
       <updated>1588949200442</updated>
     </task>
+    <task id="LOCAL-00001" summary="Diseño Menu Principal, Botones Deshabilitados">
+      <created>1588970191114</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588970191114</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,5 +191,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Diseño Menu Principal, Botones Deshabilitados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Diseño Menu Principal, Botones Deshabilitados" />
   </component>
 </project>
