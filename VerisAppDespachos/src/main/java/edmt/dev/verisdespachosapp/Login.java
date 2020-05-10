@@ -35,10 +35,10 @@ private static ProgressDialog progressDialog;
         LoginD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RecuperaToken();
+               // RecuperaToken();
 
-              //  Intent intent = new Intent(Login.this,Pantalla_Principal.class);
-                //startActivity(intent);
+               Intent intent = new Intent(Login.this,Pantalla_Principal.class);
+                startActivity(intent);
             }
         });
     }
@@ -49,16 +49,16 @@ private static ProgressDialog progressDialog;
 
         OkHttpClient client = new OkHttpClient();
         JsonObject postData = new JsonObject();
-        postData.addProperty("user","wsapppaperless");
-        postData.addProperty("pass","CAS5789b86Mdr5Pap3rl3$$");
+        postData.addProperty("user","wsformularioepi1");
+        postData.addProperty("pass","CAS5789b86Mdr5F0rmular103pi1*");
 
 
         final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody postBody = RequestBody.create(JSON, postData.toString());
         Request post = new Request.Builder()
-                .url("http://52.7.160.244:8118/Verisrest/v1/paperless/portal/web/login")
+                .url("http://52.7.160.244:8223/Verisrest/v1/formularioepi1/login")
                 .post(postBody)
-                .addHeader("Authorization", "Basic  d3NhcHBwYXBlcmxlc3M6Q0FTNTc4OWI4Nk1kcjVQYXAzcmwzJCQ=" )
+                .addHeader("Authorization", "Basic  d3Nmb3JtdWxhcmlvZXBpMTpDQVM1Nzg5Yjg2TWRyNUYwcm11bGFyMTAzcGkxKg==" )
                 .build();
 
         client.newCall(post).enqueue(new Callback() {
