@@ -167,6 +167,7 @@ private static ProgressDialog progressDialog;
                                     Validador = true;
 
                             }else{
+
                                 Validador = false;
                             }
                         }
