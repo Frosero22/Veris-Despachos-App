@@ -16,8 +16,8 @@
         >
 
         <ImageView
-            android:layout_width="296dp"
-            android:layout_height="219dp"
+            android:layout_width="299dp"
+            android:layout_height="147dp"
             android:layout_gravity="center"
             android:src="@drawable/veris" />
         <TextView
@@ -32,7 +32,7 @@
             />
 
         <EditText
-            android:id="@+id/et-Email"
+            android:id="@+id/edit_user"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -45,8 +45,9 @@
             android:background="@drawable/edit"
             android:padding="20dp"
             />
+
         <EditText
-            android:id="@+id/et-pass"
+            android:id="@+id/edit_pass"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

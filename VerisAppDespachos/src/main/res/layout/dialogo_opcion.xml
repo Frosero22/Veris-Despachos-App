@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#2979FF"
+        android:gravity="center"
+        android:padding="8dp"
+        android:src="@drawable/cosa" />
+
+    <TextView
+        android:id="@+id/text_dialog"
+        android:layout_width="417dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="42dp"
+        android:gravity="center"
+        android:text="ELIJA UN METODO DE PICKING"
+        android:textColor="#2979FF"
+        android:textSize="28sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_lector"
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton"
+            android:text="Lector Qr"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton"
+            android:text="Id de Solicitud"
+            android:textSize="20dp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+
+</LinearLayout>

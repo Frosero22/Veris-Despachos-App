@@ -12,60 +12,66 @@
         android:orientation="vertical"
         android:background="@drawable/bg"
         android:weightSum="10"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="69dp"
             android:layout_weight="2">
-
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="88dp"
+                android:layout_width="139dp"
+                android:layout_height="135dp"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="469dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="0dp"
+                android:layout_marginStart="460dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="10dp"
                 app:srcCompat="@drawable/cosa" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="175dp"
-                android:layout_height="43dp"
+                android:layout_width="212dp"
+                android:layout_height="52dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="415dp"
-                android:layout_marginBottom="46dp"
-                android:text="Bienvenido .."
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="378dp"
+                android:layout_marginBottom="83dp"
+                android:text="Bienvenido:"
                 android:textColor="@color/white"
                 android:textSize="35dp" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="175dp"
-                android:layout_height="43dp"
+                android:layout_width="169dp"
+                android:layout_height="49dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="58dp"
-                android:layout_marginEnd="415dp"
-                android:layout_marginBottom="-3dp"
-                android:text="Sucursal :"
+                android:layout_marginTop="87dp"
+                android:layout_marginEnd="421dp"
+                android:layout_marginBottom="13dp"
+                android:text="Sucursal:"
                 android:textColor="@color/white"
                 android:textSize="35dp" />
+
+
         </RelativeLayout>
 
         <GridLayout
             android:id="@+id/mainGrid"
-            android:layout_width="618dp"
+            android:layout_width="match_parent"
             android:layout_height="470dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="8"
             android:alignmentMode="alignMargins"
             android:columnCount="2"
@@ -78,12 +84,12 @@
             <!-- Column 1 -->
             <android.support.v7.widget.CardView
                 android:id="@+id/btn_picking"
-                android:layout_width="36dp"
-                android:layout_height="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
@@ -99,10 +105,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/me_time" />
+                        android:src="@drawable/ic_picking" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Picking"
                         android:textAlignment="center"
@@ -131,8 +137,8 @@
             <!-- Column 2 -->
 
             <android.support.v7.widget.CardView
-                android:layout_width="20dp"
-                android:layout_height="31dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
@@ -153,10 +159,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/calendar" />
+                        android:src="@drawable/ic_pickup" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Pick Up"
                         android:textAlignment="center"
@@ -169,15 +175,15 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:layout_width="1dp"
-                android:layout_height="1dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:layout_marginLeft="1dp"
-                android:layout_marginRight="1dp"
-                android:backgroundTint="@color/nodisponible"
-
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
+
+                android:backgroundTint="@color/nodisponible"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
 
@@ -192,7 +198,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/calendar" />
+                        android:src="@drawable/despachoo" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -240,6 +246,46 @@
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+
+                android:backgroundTint="@color/nodisponible"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/me_time" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PROXIMAMENTE"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="18dp"
                         android:textStyle="bold" />
 
                 </LinearLayout>

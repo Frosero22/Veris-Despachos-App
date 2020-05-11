@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#2979FF"
+        android:gravity="center"
+        android:padding="8dp"
+        android:src="@drawable/cosa" />
+
+    <EditText
+        android:id="@+id/edit_id"
+        android:layout_width="545dp"
+        android:layout_height="72dp"
+        android:layout_margin="42dp"
+        android:background="@drawable/edit"
+        android:textColorHint="#2979FF"
+        android:gravity="center"
+        android:hint="Ingrese ID de Solicitud"
+        android:inputType="number"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_procesar"
+            android:layout_width="99dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton"
+            android:text="Procesar"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_cancelar_pick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton"
+            android:text="Cancelar"
+            android:textSize="20dp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+
+</LinearLayout>

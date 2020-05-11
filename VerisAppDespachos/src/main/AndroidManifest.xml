@@ -6,10 +6,10 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+
+        android:theme="@style/AppTheme.FullScreen">
         <activity
             android:name="edmt.dev.verisdespachosapp.MainActivity"
             android:theme="@style/AppTheme.FullScreen">
@@ -25,11 +25,15 @@
             android:theme="@style/AppTheme"
             android:label="MENU PRINCIPAL">
         </activity>
-        <activity
-            android:name="edmt.dev.verisdespachosapp.Login">
 
+        <activity
+            android:name="edmt.dev.verisdespachosapp.Login"
+            android:theme="@style/AppTheme"
+            android:label="INICIO DE SESION">
 
         </activity>
+
+
     </application>
 
 </manifest>
