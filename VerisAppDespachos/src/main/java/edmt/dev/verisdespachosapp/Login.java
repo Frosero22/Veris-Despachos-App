@@ -3,11 +3,15 @@ package edmt.dev.verisdespachosapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
@@ -33,7 +37,7 @@ Button LoginD;
 String Token;
 EditText User;
 EditText Pass;
-    Boolean Validador = false;
+ Integer val = 0;
 private static ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,45 +159,116 @@ private static ProgressDialog progressDialog;
                     }
 
                     assert responseBody != null;
-
+                    //Declaro el Jsonobjet para capturar el response
                     JSONObject jsonObject = new JSONObject(responseBody.string());
-                    String listaXrol = jsonObject.getString("lsUsuarioXRol");
-                    JSONArray jsonArray = new JSONArray(listaXrol);
+                    // obtengo el primer dato dentro del objeto y condicion
+                    if(jsonObject.getInt("codigo")==0) {
 
-                        for(int a = 0; a < jsonArray.length(); a++){
-                            JSONObject js = jsonArray.getJSONObject(a);
-                            if(js.getString("codigoRol").equals("DESPACHO_FARMACIA")
-                                    && js.getString("codigoUsuario").equals(User)){
-                                    Validador = true;
+                        String listaRol = jsonObject.getString("lsUsuarioXRol");
+                        JSONArray jsonArray = new JSONArray(listaRol);
+
+
+
+
+                        for (int a = 0; a < jsonArray.length(); a++) {
+
+                            JSONObject json = jsonArray.getJSONObject(a);
+
+
+                            Log.e("ARRAYS","ENCONTRADOS " +json.getString("codigoRol"));
+
+
+                            if (json.getString("codigoRol").equalsIgnoreCase("DESPACHO_FARMACIA")) {
+
+                                    Log.e("JSON "," es " +json.getString("codigoRol"));
+
+                                    val = 1;
 
                             }else{
 
-                                Validador = false;
+                                Log.e("Acceso denegado","No se encontro Rol Requerido");
+
                             }
+
                         }
 
-                            if(Validador = true){
-                                Log.e("Ok","Acceso Listo");
+                        if(val == 1){
+                            //ingresa
+                            Log.e("Ok","Acceso Listo");
 
-                                Intent intent = new Intent(Login.this,Pantalla_Principal.class);
-                                startActivity(intent);
-                            }else{
+                            Intent intent = new Intent(Login.this,Pantalla_Principal.class);
+                            startActivity(intent);
+                        }else{
+                            // no ingresa
+                            Log.e("Acceso Denegado","Credenciales Incorrectas" +jsonObject);
 
-                                Toast.makeText(Login.this, "No Contiene el Rol Correcto", Toast.LENGTH_SHORT).show();
+                            Looper.prepare();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                            LayoutInflater inflater = getLayoutInflater();
+                            View view = inflater.inflate(R.layout.dialogo_error,null);
+                            builder.setView(view);
+                            final AlertDialog dialog = builder.create();
+                            dialog.show();
+                            dialog.setCancelable(false);
+                            TextView txt = view.findViewById(R.id.text_error);
+                            txt.setText("No Se Encontraron Roles Necesarios");
 
+                            Button Aceptar = view.findViewById(R.id.btn_acept);
+                            Aceptar.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialog.dismiss();
+                                }
+
+
+                            });
+                            Looper.loop();
+
+
+                        }
+
+                    }else {
+                        // este else es caso contrario que el codigo sea diferente de 0
+                        Looper.prepare();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+
+                        LayoutInflater inflater = getLayoutInflater();
+
+                        View view = inflater.inflate(R.layout.dialogo_error,null);
+
+                        builder.setView(view);
+
+                        final AlertDialog dialog = builder.create();
+                        dialog.show();
+                            dialog.setCancelable(false);
+                        TextView txt = view.findViewById(R.id.text_error);
+                        txt.setText("Usuario o Contraseña Invalido --> Crendeciales Invalidas");
+
+                        Button Aceptar = view.findViewById(R.id.btn_acept);
+                        Aceptar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialog.dismiss();
                             }
 
+
+                        });
+                        Looper.loop();
+
+
+                        Log.e("MENSAJE","-> Credencioanles invalidas sea Usuario contra");
+                    }
 
 
 
                 } catch (Exception e) {
-
                     e.printStackTrace();
                     Log.e("Error","Error--->"+e);
                 }
             }
             });
 
+                val = 0;
 
             }
         }
