@@ -88,6 +88,13 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
                     @Override
                     public void onClick(View view) {
                             String Solicitud = Id.getText().toString().trim();
+
+
+
+
+
+
+
                     }
                 });
 
