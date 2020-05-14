@@ -22,6 +22,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -64,7 +65,7 @@ private static ProgressDialog progressDialog;
     }
 //TOKEN NECESARIO PARA TODOS LOS SERVICIOS RESTANTES
     public String RecuperaToken(){
-
+progressDialog = GenericUtil.barraCargando(Login.this,"Generando Token...Validando Usuario...Espere...");
         OkHttpClient client = new OkHttpClient();
         JsonObject postData = new JsonObject();
         postData.addProperty("user","wsformularioepi1");
@@ -114,6 +115,7 @@ private static ProgressDialog progressDialog;
 
 
     public void LoginConToken(String Token) throws JSONException {
+
 
 
 
@@ -185,7 +187,7 @@ private static ProgressDialog progressDialog;
                                     val = 1;
 
                             }else{
-
+                                progressDialog.dismiss();
                                 Log.e("Acceso denegado","No se encontro Rol Requerido");
 
                             }
@@ -197,9 +199,11 @@ private static ProgressDialog progressDialog;
                             Log.e("Ok","Acceso Listo");
 
                             Intent intent = new Intent(Login.this,Pantalla_Principal.class);
+                            intent.putExtra("User",User.getText().toString().trim());
                             startActivity(intent);
+                            progressDialog.dismiss();
                         }else{
-                            // no ingresa
+                            progressDialog.dismiss();
                             Log.e("Acceso Denegado","Credenciales Incorrectas" +jsonObject);
 
                             Looper.prepare();
@@ -228,7 +232,7 @@ private static ProgressDialog progressDialog;
                         }
 
                     }else {
-                        // este else es caso contrario que el codigo sea diferente de 0
+                        progressDialog.dismiss();
                         Looper.prepare();
                         AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
 
@@ -262,6 +266,8 @@ private static ProgressDialog progressDialog;
 
 
                 } catch (Exception e) {
+                    progressDialog.dismiss();
+
                     e.printStackTrace();
                     Log.e("Error","Error--->"+e);
                 }
