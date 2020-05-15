@@ -37,6 +37,7 @@
             android:layout_marginStart="0dp"
             android:layout_weight="1"
             android:background="@drawable/boton_exito"
+
             android:text="Aceptar"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
