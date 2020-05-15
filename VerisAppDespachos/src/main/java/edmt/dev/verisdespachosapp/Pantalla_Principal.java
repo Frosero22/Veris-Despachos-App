@@ -2,6 +2,7 @@ package edmt.dev.verisdespachosapp;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Looper;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.google.zxing.Result;
@@ -59,6 +61,7 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
                        RecuperaToken();
 
 
+
             }
         });
 
@@ -70,6 +73,9 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
 
     @Override
     public void handleResult(Result result) {
+
+
+
 
 
 
@@ -114,8 +120,8 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
                     JSONObject object = new JSONObject(response.body().string());
                     Log.e("Token" ,"Token ->" + object.getString("accesToken"));
                     Token = object.getString("accesToken");
+                    Dialogo(Token);
 
-               Dialogo(Token);
 
                     Log.e("Ok","Token Generado");
                 } catch (Exception e) {
@@ -229,11 +235,16 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
 
 
 
-                                        if(jsonObject.getString("mensaje").equalsIgnoreCase("Ya se realizo picking a esta solicitud.")){
+                                        if(jsonObject.getString("success").equalsIgnoreCase("OK")){
 
 
                                             progressDialog.dismiss();
-                                            MensajeErrorPicking();
+
+                                            MensajeExito();
+
+                                            Intent intent = new Intent(Pantalla_Principal.this,Pantalla_Principal.class);
+                                            startActivity(intent);
+                                            finish();
 
 
 
@@ -242,12 +253,11 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
                                                     progressDialog.dismiss();
                                                     MensajeErrorAplicacion();
 
-                                        }else{
+                                        }else if(jsonObject.getString("mensaje").equalsIgnoreCase("Ya se realizo picking a esta solicitud.")){
 
                                             progressDialog.dismiss();
+                                            MensajeErrorPicking();
 
-                                                        MensajeExito();
-                                                        finish();
 
 
                                         }
@@ -261,6 +271,10 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();
+
+                                        Looper.prepare();
+                                        Toast.makeText(Pantalla_Principal.this, "ERROR"+e, Toast.LENGTH_LONG).show();
+                                        Looper.loop();
 
                                         Log.e("ERROR","ERROR --------> "+e);
 
@@ -280,32 +294,37 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
 
                         }catch (Exception e){
 
+                            Looper.prepare();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Pantalla_Principal.this);
 
+                            LayoutInflater inflater = getLayoutInflater();
+
+                            View viewV = inflater.inflate(R.layout.dialogo_error, null);
+
+                            builder.setView(viewV);
+
+
+                            final AlertDialog dialogM = builder.create();
+                            dialogM.show();
+                            dialogM.setCancelable(false);
+
+                            TextView txt = viewV.findViewById(R.id.text_error);
+                            txt.setText("Error ---> "+e);
+
+                            Button Aceptar = view.findViewById(R.id.btn_acept);
+                            Aceptar.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    dialogM.dismiss();
+                                }
+
+
+                            });
+                            Looper.loop();
 
 
 
                         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     }
@@ -449,6 +468,7 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
             @Override
             public void onClick(View view) {
                 dialogX.dismiss();
+
             }
 
 
