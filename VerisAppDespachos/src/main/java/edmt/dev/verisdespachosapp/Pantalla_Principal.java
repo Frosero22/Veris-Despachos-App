@@ -3,6 +3,7 @@ package edmt.dev.verisdespachosapp;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Looper;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -49,7 +50,8 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla);
-
+        time time = new time();
+        time.execute();
         Bundle bundle = this.getIntent().getExtras();
         Usuario = bundle.getString("User","----");
 
@@ -66,10 +68,55 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
         });
 
 
-
-
-
     }
+
+    public void Ejecutar(){
+        time time = new time();
+        time.execute();
+        Intent intent = new Intent(Pantalla_Principal.this,Login.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void ExpiraSesion() throws InterruptedException {
+        Thread.sleep(3600000);
+    }
+
+
+    public class  time extends AsyncTask<Void,Integer,Boolean>{
+
+        @Override
+        protected Boolean doInBackground(Void... voids) {
+
+            for(int i = 1; i == 1; i++){
+
+                try {
+                    ExpiraSesion();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    Log.e("ERROR","---->"+e);
+                }
+
+            }
+            return true;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+
+                Ejecutar();
+
+            Toast.makeText(Pantalla_Principal.this, "LA SESION EXPIRA CADA HORA", Toast.LENGTH_SHORT).show();
+
+
+
+
+        }
+    }
+
+
+
 
     @Override
     public void handleResult(Result result) {
@@ -230,25 +277,20 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
 
 
 
-
-                                        Log.e("MENSAJE","GENERADO---------->" +jsonObject);
-
+                                                    if(jsonObject.getString("success").equalsIgnoreCase("OK")){
 
 
-                                        if(jsonObject.getString("success").equalsIgnoreCase("OK")){
-
-
-                                            progressDialog.dismiss();
-
-                                            MensajeExito();
-
-                                            Intent intent = new Intent(Pantalla_Principal.this,Pantalla_Principal.class);
-                                            startActivity(intent);
-                                            finish();
+                                                        progressDialog.dismiss();
+                                                        MensajeExito();
 
 
 
-                                        }else if(jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")){
+                                                    }
+
+
+
+
+                                        if(jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")){
 
                                                     progressDialog.dismiss();
                                                     MensajeErrorAplicacion();
@@ -259,6 +301,13 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
                                             MensajeErrorPicking();
 
 
+
+                                        }else{
+
+                                            progressDialog.dismiss();
+                                            MensajeExito();
+
+                                            finish();
 
                                         }
 
@@ -468,6 +517,8 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
             @Override
             public void onClick(View view) {
                 dialogX.dismiss();
+                Intent intent = new Intent(Pantalla_Principal.this,Pantalla_Principal.class);
+                startActivity(intent);
 
             }
 
