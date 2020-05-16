@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Looper;
+import android.support.annotation.UiThread;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.google.gson.JsonObject;
 import com.google.zxing.Result;
 import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +40,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 
-public class Pantalla_Principal extends AppCompatActivity implements ZXingScannerView.ResultHandler{
+public class Pantalla_Principal extends AppCompatActivity  {
 
     CardView Picking;
     private ZXingScannerView mScannerView;
@@ -84,6 +86,8 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
     }
 
 
+
+
     public class  time extends AsyncTask<Void,Integer,Boolean>{
 
         @Override
@@ -118,21 +122,11 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
 
 
 
-    @Override
-    public void handleResult(Result result) {
 
-
-
-
-
-
-
-
-    }
 
 
     public String RecuperaToken(){
-        progressDialog = GenericUtil.barraCargando(Pantalla_Principal.this,"Generando Token...Espere...");
+        progressDialog = GenericUtil.barraCargando(Pantalla_Principal.this,"Levantando Informacion...");
 
         OkHttpClient client = new OkHttpClient();
         JsonObject postData = new JsonObject();
@@ -168,6 +162,7 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
                     Log.e("Token" ,"Token ->" + object.getString("accesToken"));
                     Token = object.getString("accesToken");
                     Dialogo(Token);
+
 
 
                     Log.e("Ok","Token Generado");
@@ -400,27 +395,119 @@ public class Pantalla_Principal extends AppCompatActivity implements ZXingScanne
             @Override
             public void onClick(View view) {
 
+              new IntentIntegrator(Pantalla_Principal.this).initiateScan();
 
-                IntentIntegrator integrator = new IntentIntegrator(Pantalla_Principal.this);
-                integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
-                integrator.setPrompt("Escanea el Codigo Qr");
-                integrator.setCameraId(0);
-                integrator.setBeepEnabled(false);
-                integrator.setBarcodeImageEnabled(true);
-                integrator.initiateScan();
+
 
 
             }
 
         });
 
-        Looper.loop();
 
+        Looper.loop();
 
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
+        if (result != null) {
+
+            Log.e("MENSAJE", "---------->  " + result.getContents());
+
+            String IdSoliticitud = result.getContents();
+
+            OkHttpClient client = new OkHttpClient();
+            JSONObject postData = new JSONObject();
+
+
+            final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+            RequestBody postBody = RequestBody.create(JSON, postData.toString());
+
+
+            Request post = new Request.Builder()
+                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion=" + IdSoliticitud.trim() + "&argCodUsuario=" + Usuario)
+
+                    .post(postBody)
+
+                    .addHeader("Authorization", "Bearer " + Token)
+
+                    .build();
+            Log.e("POSTBODY", "--------> " + postBody);
+            Log.e("POST", "--------> " + post);
+            Log.e("POST", "--------> " + Token);
+
+
+            client.newCall(post).enqueue(new Callback() {
+
+
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    ResponseBody responseBody = response.body();
+                    try {
+                        JSONObject jsonObject = new JSONObject(responseBody.string());
+                        Log.e("RESPONSE BODY","--->"  +responseBody);
+
+                   //     if (jsonObject.getString("success").equalsIgnoreCase("OK")) {
+
+
+                        //    progressDialog.dismiss();
+//
+
+                    //    }
+
+
+                        if (jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")) {
+
+                            progressDialog.dismiss();
+                            MensajeErrorAplicacion();
+
+                        } else if (jsonObject.getString("mensaje").equalsIgnoreCase("Ya se realizo picking a esta solicitud.")) {
+
+                            progressDialog.dismiss();
+                            MensajeErrorPicking();
+
+
+                        } else {
+
+                            progressDialog.dismiss();
+                            MensajeExito();
+
+                            finish();
+
+                        }
+
+
+                    }catch (Exception e){
+
+
+
+
+
+
+
+
+                    }
+                }
+            });
+
+        } else {
+
+
+            Log.e("MENSAJE Error", "---------->  " + result.getContents());
+
+
+        }
+    }
 
     public void MensajeErrorPicking(){
         Looper.prepare();

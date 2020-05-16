@@ -29,7 +29,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +38,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="HPV156QS" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_4_API_28" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -211,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589489442970</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Tiempo de Expiracion de Sesion Incorporada">
+      <created>1589594645370</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589594645370</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -234,6 +241,7 @@
     <MESSAGE value="Generacion de Token&#10;Pantalla para celular arreglada" />
     <MESSAGE value="Validacion de Inicio de Sesion Incorporado" />
     <MESSAGE value="Servicio Picking Incorporado&#10;Falta Lector" />
-    <option name="LAST_COMMIT_MESSAGE" value="Servicio Picking Incorporado&#10;Falta Lector" />
+    <MESSAGE value="Tiempo de Expiracion de Sesion Incorporada" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tiempo de Expiracion de Sesion Incorporada" />
   </component>
 </project>

@@ -63,9 +63,10 @@ private static ProgressDialog progressDialog;
 
 
     }
+
 //TOKEN NECESARIO PARA TODOS LOS SERVICIOS RESTANTES
     public String RecuperaToken(){
-progressDialog = GenericUtil.barraCargando(Login.this,"Generando Token...Validando Usuario...Espere...");
+progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
         OkHttpClient client = new OkHttpClient();
         JsonObject postData = new JsonObject();
         postData.addProperty("user","wsformularioepi1");
