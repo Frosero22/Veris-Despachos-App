@@ -1,11 +1,9 @@
 package edmt.dev.verisdespachosapp;
-
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Looper;
-import android.support.annotation.UiThread;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,17 +15,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.gson.JsonObject;
-import com.google.zxing.Result;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
-
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import okhttp3.Call;
@@ -126,7 +119,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
     public String RecuperaToken(){
-        progressDialog = GenericUtil.barraCargando(Pantalla_Principal.this,"Levantando Informacion...");
+        progressDialog = GenericUtil.barraCargando(Pantalla_Principal.this,"Espere un Momento...");
 
         OkHttpClient client = new OkHttpClient();
         JsonObject postData = new JsonObject();
@@ -146,7 +139,12 @@ public class Pantalla_Principal extends AppCompatActivity  {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
+
+                MensajeErrorServicio(e);
+
                 Log.e("Error","Error"+e);
+
+
             }
 
             @Override
@@ -253,6 +251,8 @@ public class Pantalla_Principal extends AppCompatActivity  {
                                 @Override
                                 public void onFailure(Call call, IOException e) {
 
+                                    MensajeErrorServicio(e);
+
                                 }
 
                                 @Override
@@ -276,6 +276,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
                                                         progressDialog.dismiss();
+                                                        finish();
                                                         MensajeExito();
 
 
@@ -397,9 +398,6 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
               new IntentIntegrator(Pantalla_Principal.this).initiateScan();
 
-
-
-
             }
 
         });
@@ -448,6 +446,8 @@ public class Pantalla_Principal extends AppCompatActivity  {
                 @Override
                 public void onFailure(Call call, IOException e) {
 
+                    MensajeErrorServicio(e);
+
                 }
 
                 @Override
@@ -457,16 +457,17 @@ public class Pantalla_Principal extends AppCompatActivity  {
                         JSONObject jsonObject = new JSONObject(responseBody.string());
                         Log.e("RESPONSE BODY","--->"  +responseBody);
 
-                   //     if (jsonObject.getString("success").equalsIgnoreCase("OK")) {
+                      if (jsonObject.getString("mensaje").equalsIgnoreCase("OK")) {
 
 
-                        //    progressDialog.dismiss();
+                         progressDialog.dismiss();
+                         MensajeExito();
+
 //
 
-                    //    }
 
 
-                        if (jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")) {
+                      }else if (jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")) {
 
                             progressDialog.dismiss();
                             MensajeErrorAplicacion();
@@ -476,13 +477,6 @@ public class Pantalla_Principal extends AppCompatActivity  {
                             progressDialog.dismiss();
                             MensajeErrorPicking();
 
-
-                        } else {
-
-                            progressDialog.dismiss();
-                            MensajeExito();
-
-                            finish();
 
                         }
 
@@ -563,7 +557,42 @@ public class Pantalla_Principal extends AppCompatActivity  {
         dialogE.setCancelable(false);
 
         TextView txt = view.findViewById(R.id.text_error);
-        txt.setText("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS");
+        txt.setText("No existe el codigo de solicitud o numero de transaccion.");
+
+        Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogE.dismiss();
+            }
+
+
+        });
+        Looper.loop();
+
+
+    }
+
+
+    public void MensajeErrorServicio(IOException e){
+        Looper.prepare();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Pantalla_Principal.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
+
+        final AlertDialog dialogE = builder.create();
+
+        dialogE.show();
+
+        dialogE.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("Error al Ejecutar el Servicio Web, Comuniquese con el Area de Sistemas");
 
         Button Aceptar = view.findViewById(R.id.btn_acept);
         Aceptar.setOnClickListener(new View.OnClickListener() {
@@ -604,8 +633,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 dialogX.dismiss();
-                Intent intent = new Intent(Pantalla_Principal.this,Pantalla_Principal.class);
-                startActivity(intent);
+
 
             }
 
