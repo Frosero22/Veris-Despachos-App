@@ -37,6 +37,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
     CardView Picking;
     private ZXingScannerView mScannerView;
+
     private ProgressDialog progressDialog;
     String Usuario, Token;
 
