@@ -272,7 +272,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
 
-                                                    if(jsonObject.getString("success").equalsIgnoreCase("OK")){
+                                                    if(jsonObject.getString("mensaje").equalsIgnoreCase("OK")){
 
 
                                                         progressDialog.dismiss();

@@ -19,10 +19,11 @@
             android:layout_height="220dp"
             android:layout_gravity="center"
             android:src="@drawable/veris" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bienvenido"
+            android:text="Bienvenidos"
             android:textColor="#2979FF"
             android:textStyle="bold"
             android:layout_gravity="center"
@@ -32,43 +33,52 @@
 
         <EditText
             android:id="@+id/edit_user"
-            android:layout_width="300dp"
+            android:layout_width="389dp"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="Usuario"
-            android:textColorHint="#2979FF"
             android:layout_gravity="center"
-            android:drawableLeft="@drawable/ic_person"
-            android:drawablePadding="10dp"
             android:layout_marginTop="35dp"
             android:background="@drawable/edit"
-            android:padding="20dp"
-            />
-        <EditText
-            android:id="@+id/edit_pass"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Contraseña"
-            android:textColorHint="#2979FF"
-            android:layout_gravity="center"
             android:drawableLeft="@drawable/ic_person"
             android:drawablePadding="10dp"
+            android:hint="Usuario"
+            android:inputType="textEmailAddress"
+            android:padding="20dp"
+            android:textColorHint="#2979FF" />
+
+        <EditText
+            android:id="@+id/edit_pass"
+            android:layout_width="389dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:background="@drawable/edit"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawablePadding="10dp"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
             android:padding="20dp"
-            />
+            android:textColorHint="#2979FF" />
+
+        <CheckBox
+            android:id="@+id/ver_contraseña"
+            android:layout_width="366dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:buttonTint="#2979FF"
+            android:text="Ver Contraseña"
+            android:textColor="#2979FF"
+            android:textSize="25dp" />
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="374dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Iniciar Sesion"
-            android:textColor="#fff"
             android:layout_marginTop="20dp"
             android:background="@drawable/button"
-            />
+            android:text="Iniciar Sesion"
+            android:textColor="#fff" />
 
     </LinearLayout>
 

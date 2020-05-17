@@ -3,6 +3,7 @@
   <component name="AndroidLayouts">
     <shared>
       <config>
+        <device id="pixel" />
         <device id="pixel_3_xl" />
         <device id="Nexus 6P" />
         <device id="pixel_3a_xl" />
@@ -20,17 +21,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290615ca-ec24-409b-975e-ba7c27f3df4d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxhdpi/circletransparant.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-hdpi/button.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-hdpi/button.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxxhdpi/boton.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxxhdpi/boton.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_pantalla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_pantalla.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_digitarqr.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_pantalla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_pantalla.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +52,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_4_API_28" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="HPV156QS" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -68,7 +82,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/VerisAppDespachos/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxhdpi" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -79,11 +93,11 @@
       <recent name="Utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\drawable-xxhdpi" />
       <recent name="C:\workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\drawable-hdpi" />
       <recent name="C:\workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\layout" />
       <recent name="C:\workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\drawable-mdpi" />
       <recent name="C:\workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\drawable-xxxhdpi" />
-      <recent name="C:\workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\java\edmt\dev\verisdespachosapp" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -218,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589594645370</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Lector Incorporado&#10;Falta Mejorar la Validacion De Tokens para Farmacia">
+      <created>1589602426489</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1589602426489</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,6 +263,7 @@
     <MESSAGE value="Validacion de Inicio de Sesion Incorporado" />
     <MESSAGE value="Servicio Picking Incorporado&#10;Falta Lector" />
     <MESSAGE value="Tiempo de Expiracion de Sesion Incorporada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tiempo de Expiracion de Sesion Incorporada" />
+    <MESSAGE value="Lector Incorporado&#10;Falta Mejorar la Validacion De Tokens para Farmacia" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lector Incorporado&#10;Falta Mejorar la Validacion De Tokens para Farmacia" />
   </component>
 </project>

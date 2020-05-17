@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:background="@color/fondo"
     tools:context=".Login">
 
@@ -16,18 +17,18 @@
         >
 
         <ImageView
-            android:layout_width="248dp"
-            android:layout_height="130dp"
+            android:layout_width="228dp"
+            android:layout_height="99dp"
             android:layout_gravity="center"
             android:src="@drawable/veris" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bienvenidos"
-            android:textColor="@color/azulveris"
+            android:textColor="#2979FF"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="70dp"
             android:textSize="25dp"
             />
 
@@ -46,6 +47,7 @@
             android:padding="20dp"
             />
 
+
         <EditText
             android:id="@+id/edit_pass"
             android:layout_width="300dp"
@@ -56,10 +58,23 @@
             android:layout_gravity="center"
             android:drawableLeft="@drawable/ic_person"
             android:drawablePadding="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/edit"
+
             android:padding="20dp"
             />
+
+
+        <CheckBox
+            android:id="@+id/ver_contraseña"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+            android:textColor="#2979FF"
+            android:buttonTint="#2979FF"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"
+            android:text="Ver Contraseña" />
 
         <Button
             android:id="@+id/btn_login"
@@ -72,6 +87,10 @@
             android:background="@drawable/button"
             />
 
+
     </LinearLayout>
+
+
+
 
 </LinearLayout>

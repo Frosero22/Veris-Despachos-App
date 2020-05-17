@@ -4,12 +4,18 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
+import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +25,7 @@ import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -35,6 +42,7 @@ import okhttp3.ResponseBody;
 
 public class Login extends AppCompatActivity {
 Button LoginD;
+CheckBox VerContraseña;
 String Token;
 EditText User;
 EditText Pass;
@@ -53,9 +61,34 @@ private static ProgressDialog progressDialog;
             public void onClick(View view) {
 
 
+                String Usu = User.getText().toString().trim();
+                String Contra = Pass.getText().toString().trim();
+
+                if(Usu.isEmpty()){
+                    User.setError("Campo Obligatorio");
+                }else if(Contra.isEmpty()){
+                    Pass.setError("Campo Obligatorio");
+                }else {
 
                     RecuperaToken();
 
+                }
+
+            }
+        });
+
+        VerContraseña = findViewById(R.id.ver_contraseña);
+        VerContraseña.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+                if(b){
+
+                    Pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }else{
+
+                    Pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
 
             }
         });

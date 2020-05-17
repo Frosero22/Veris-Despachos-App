@@ -112,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:text="Picking"
                         android:textAlignment="center"
-                        android:textColor="@android:color/black"
+                        android:textColor="#2979FF"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
@@ -166,7 +166,7 @@
                         android:layout_height="wrap_content"
                         android:text="Pick Up"
                         android:textAlignment="center"
-                        android:textColor="@android:color/black"
+                        android:textColor="#2979FF"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
