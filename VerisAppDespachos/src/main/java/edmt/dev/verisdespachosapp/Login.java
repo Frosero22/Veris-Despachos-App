@@ -1,7 +1,10 @@
 package edmt.dev.verisdespachosapp;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.ContactsContract;
@@ -67,24 +70,35 @@ private static ProgressDialog progressDialog;
                 String Usu = User.getText().toString().trim();
                 String Contra = Pass.getText().toString().trim();
 
-                if(Usu.isEmpty()){
-                    User.setError("Campo Obligatorio");
-                }else if(Contra.isEmpty()){
-                    Pass.setError("Campo Obligatorio");
-                }else {
+                ConnectivityManager con = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                assert con != null;
+                NetworkInfo networkInfo = con.getActiveNetworkInfo();
 
-                    try {
+                if (networkInfo != null && networkInfo.isConnected()) {
 
-                        LoginConToken();
+                    if (Usu.isEmpty()) {
+                        User.setError("Campo Obligatorio");
+                    } else if (Contra.isEmpty()) {
+                        Pass.setError("Campo Obligatorio");
+                    } else {
 
-                    } catch (JSONException e) {
+                        try {
 
-                        e.printStackTrace();
+                            LoginConToken();
+
+                        } catch (JSONException e) {
+
+                            e.printStackTrace();
+                        }
+
                     }
 
-                }
+                }else{
 
+                    MensajeErrorInternet();
+                }
             }
+
         });
 
         VerContraseña = findViewById(R.id.ver_contraseña);
@@ -201,6 +215,9 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                 try {
                     ResponseBody responseBody = response.body();
                     if (!response.isSuccessful()) {
+
+                        progressDialog.dismiss();
+                        MensajeErrorToken();
 
                         throw new IOException("Error Inesperado " + response);
                     }
@@ -323,6 +340,86 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                 val = 0;
 
             }
+
+
+
+
+
+    public void MensajeErrorInternet(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
+
+
+        final AlertDialog dialogM = builder.create();
+        dialogM.show();
+        dialogM.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("Por favor Conectate a Internet");
+
+        Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogM.dismiss();
+            }
+
+
+        });
+        Looper.loop();
+
+
+
+
+    }
+
+    public void MensajeErrorToken(){
+        Looper.prepare();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
+
+
+        final AlertDialog dialogM = builder.create();
+        dialogM.show();
+        dialogM.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("Ocurrio un Error, Reinicia la Aplicación para poder Continuar");
+
+        Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogM.dismiss();
+            }
+
+
+        });
+        Looper.loop();
+
+
+
+
+    }
+
+
+
+
+
+
+
+
         }
 
 

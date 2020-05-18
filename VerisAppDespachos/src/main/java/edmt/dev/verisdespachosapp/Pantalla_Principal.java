@@ -21,6 +21,8 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import okhttp3.Call;
@@ -233,6 +235,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
                 BotonId.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        progressDialog = GenericUtil.barraCargando(Pantalla_Principal.this,"Realizando Picking...");
 
                         try {
 
@@ -254,10 +257,9 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
                             Request post = new Request.Builder()
-                                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+Id.getText().toString().trim()+"&argCodUsuario="+Usuario)
+                                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+Id.getText().toString().trim()+"&argCodUsuario="+Usuario+"&argCodSucursal=1")
 
                                     .post(postBody)
-
                                     .addHeader("Authorization", "Bearer "+Token)
 
                                     .build();
@@ -295,7 +297,6 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
                                                         progressDialog.dismiss();
-                                                        finish();
                                                         MensajeExito();
 
 
@@ -317,7 +318,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();
-
+                                        progressDialog.dismiss();
                                         Looper.prepare();
                                         Toast.makeText(Pantalla_Principal.this, "ERROR"+e, Toast.LENGTH_LONG).show();
                                         Looper.loop();
@@ -418,7 +419,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
             Request post = new Request.Builder()
-                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion=" + IdSoliticitud.trim() + "&argCodUsuario=" + Usuario)
+                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion=" + IdSoliticitud.trim() + "&argCodUsuario=" + Usuario+"&argCodSucursal=1")
 
                     .post(postBody)
 
