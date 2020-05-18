@@ -60,12 +60,13 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
 
+
             }
         });
 
 
     }
-
+        //EL PROCEDIMIENTO QUE SE LLEVA ACABO CUANDO SE ALCANZA LA HORA
     public void Ejecutar(){
         time time = new time();
         time.execute();
@@ -74,8 +75,9 @@ public class Pantalla_Principal extends AppCompatActivity  {
         finish();
     }
 
-
+        //INDICA EL TIEMPO DE SESION MAXIMO
     public void ExpiraSesion() throws InterruptedException {
+        //1 HORA
         Thread.sleep(3600000);
     }
 
@@ -86,7 +88,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
         @Override
         protected Boolean doInBackground(Void... voids) {
-
+//SE INDICA QUE CADA UNA HORA SE REPITA EL PROCESO
             for(int i = 1; i == 1; i++){
 
                 try {
@@ -103,6 +105,8 @@ public class Pantalla_Principal extends AppCompatActivity  {
         @Override
         protected void onPostExecute(Boolean aBoolean) {
 
+            //PROCESO DESPUES DE EJECUTARSE EL TIEMPO DE EXPIRACION
+
                 Ejecutar();
 
             Toast.makeText(Pantalla_Principal.this, "LA SESION EXPIRA CADA HORA", Toast.LENGTH_SHORT).show();
@@ -118,12 +122,17 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
 
-
+//METODO PARA RECUPERAR EL TOKEN NECESARIO PARA LO SERVICIOS DE FARMACIA
     public String RecuperaToken(){
         progressDialog = GenericUtil.barraCargando(Pantalla_Principal.this,"Espere un Momento...");
 
+
+
         OkHttpClient client = new OkHttpClient();
         JsonObject postData = new JsonObject();
+
+        //CREDENCIALES DE AUTORIZACION PARA EJECUTAR EL SERVICIO
+
         postData.addProperty("user","wsphantomcajas");
         postData.addProperty("pass","CAS5789b86Mdr5Ph@nT0mC@j@$");
 
@@ -131,18 +140,22 @@ public class Pantalla_Principal extends AppCompatActivity  {
         final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody postBody = RequestBody.create(JSON, postData.toString());
         Request post = new Request.Builder()
+
                 .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/authentications/login")
                 .post(postBody)
+                //SE COLOCA EL TOKEN
                 .addHeader("Authorization", "Basic  d3NwaGFudG9tY2FqYXM6Q0FTNTc4OWI4Nk1kcjVQaEBuVDBtQ0BqQCQ=" )
                 .build();
 
         client.newCall(post).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+
+                //EN CASO QUE FALLE EL SERVICIO BOTA UN MENSAJE
                 e.printStackTrace();
 
                 MensajeErrorServicio(e);
-
+                progressDialog.dismiss();
                 Log.e("Error","Error"+e);
 
 
@@ -156,10 +169,14 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
                         throw new IOException("Error Inesperado " + response);
                     }
+
                     assert responseBody != null;
+                    //CAPTURO EL JSON GENERADO
                     JSONObject object = new JSONObject(response.body().string());
                     Log.e("Token" ,"Token ->" + object.getString("accesToken"));
+                    //CAPTURO EL TOKEN
                     Token = object.getString("accesToken");
+                    //LE PASO EL TOKEN POR PARAMETRO A LOS DIALOGOS
                     Dialogo(Token);
 
 
@@ -168,6 +185,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
                 } catch (Exception e) {
 
                     e.printStackTrace();
+
                     Log.e("Error","Error--->"+e);
                 }
             }
@@ -253,7 +271,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
                                 public void onFailure(Call call, IOException e) {
 
                                     MensajeErrorServicio(e);
-
+                                    progressDialog.dismiss();
                                 }
 
                                 @Override
@@ -268,12 +286,12 @@ public class Pantalla_Principal extends AppCompatActivity  {
                                     try {
 
 
-
+                                        //CAPTURO EL JSON QUE ME RETORNA EL SERVICIO
                                         JSONObject jsonObject = new JSONObject(responseBody.string());
 
 
 
-                                                    if(jsonObject.getString("mensaje").equalsIgnoreCase("OK")){
+                                                    if(jsonObject.getString("mensaje").equalsIgnoreCase("OK")) {
 
 
                                                         progressDialog.dismiss();
@@ -281,13 +299,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
                                                         MensajeExito();
 
 
-
-                                                    }
-
-
-
-
-                                        if(jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")){
+                                                    }else if(jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")){
 
                                                     progressDialog.dismiss();
                                                     MensajeErrorAplicacion();
@@ -299,19 +311,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
 
-                                        }else{
-
-                                            progressDialog.dismiss();
-                                            MensajeExito();
-
-                                            finish();
-
                                         }
-
-
-
-
-
 
 
 
@@ -325,18 +325,11 @@ public class Pantalla_Principal extends AppCompatActivity  {
                                         Log.e("ERROR","ERROR --------> "+e);
 
 
-
-
                                     }
-
 
                                 }
 
-
                             });
-
-
-
 
                         }catch (Exception e){
 
@@ -369,9 +362,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
                             Looper.loop();
 
 
-
                         }
-
 
                     }
                 });
@@ -387,12 +378,10 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
 
-
-
-
             }
         });
 
+        //ABRO EL LECTOR
         BotonLector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -408,7 +397,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
     }
 
-
+//METODO PARA EL LECTOR
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -448,7 +437,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
                 public void onFailure(Call call, IOException e) {
 
                     MensajeErrorServicio(e);
-
+                    progressDialog.dismiss();
                 }
 
                 @Override
@@ -463,10 +452,6 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
                          progressDialog.dismiss();
                          MensajeExito();
-
-//
-
-
 
                       }else if (jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")) {
 

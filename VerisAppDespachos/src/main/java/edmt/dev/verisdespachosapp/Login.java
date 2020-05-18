@@ -54,6 +54,9 @@ private static ProgressDialog progressDialog;
         setContentView(R.layout.activity_login);
          User = findViewById(R.id.edit_user);
          Pass = findViewById(R.id.edit_pass);
+        Bundle bundle = this.getIntent().getExtras();
+         Token = bundle.getString("Token","----");
+         Log.e("TOKEN","RECOGIDO ----> "+Token);
 
         LoginD = findViewById(R.id.btn_login);
         LoginD.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +73,14 @@ private static ProgressDialog progressDialog;
                     Pass.setError("Campo Obligatorio");
                 }else {
 
-                    RecuperaToken();
+                    try {
+
+                        LoginConToken();
+
+                    } catch (JSONException e) {
+
+                        e.printStackTrace();
+                    }
 
                 }
 
@@ -97,8 +107,8 @@ private static ProgressDialog progressDialog;
 
     }
 
-//TOKEN NECESARIO PARA TODOS LOS SERVICIOS RESTANTES
-    public String RecuperaToken(){
+//TOKEN NECESARIO PARA TODOS LOS SERVICIOS RESTANTES - INACTIVO -
+ /*   public String RecuperaToken(){
 progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
         OkHttpClient client = new OkHttpClient();
         JsonObject postData = new JsonObject();
@@ -146,10 +156,11 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
             return Token;
     }
+*/
 
+    public void LoginConToken() throws JSONException {
 
-    public void LoginConToken(String Token) throws JSONException {
-
+progressDialog = GenericUtil.barraCargando(Login.this,"Ingresando...");
 
 
 
@@ -221,7 +232,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                                     val = 1;
 
                             }else{
-                                progressDialog.dismiss();
+
                                 Log.e("Acceso denegado","No se encontro Rol Requerido");
 
                             }
@@ -237,10 +248,11 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                             startActivity(intent);
                             progressDialog.dismiss();
                         }else{
-                            progressDialog.dismiss();
-                            Log.e("Acceso Denegado","Credenciales Incorrectas" +jsonObject);
 
+                            Log.e("Acceso Denegado","Credenciales Incorrectas" +jsonObject);
+                            progressDialog.dismiss();
                             Looper.prepare();
+
                             AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
                             LayoutInflater inflater = getLayoutInflater();
                             View view = inflater.inflate(R.layout.dialogo_error,null);
@@ -300,7 +312,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
                 } catch (Exception e) {
-                    progressDialog.dismiss();
+
 
                     e.printStackTrace();
                     Log.e("Error","Error--->"+e);
