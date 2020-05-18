@@ -6,8 +6,9 @@
     <application
         android:name=".ApiS.AppVerisDespachos"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="Despachos"
+        android:icon="@mipmap/logo_veris_app"
+        android:roundIcon="@mipmap/logo_veris_round"
         android:supportsRtl="true"
 
         android:theme="@style/AppTheme.FullScreen">

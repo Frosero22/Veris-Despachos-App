@@ -160,7 +160,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
     public void LoginConToken() throws JSONException {
 
-progressDialog = GenericUtil.barraCargando(Login.this,"Ingresando...");
+    progressDialog = GenericUtil.barraCargando(Login.this,"Ingresando...");
 
 
 

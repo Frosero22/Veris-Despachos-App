@@ -17,18 +17,18 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="0dp"
             android:layout_weight="2">
 
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="88dp"
+                android:layout_width="283dp"
+                android:layout_height="132dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="-95dp"
-                android:layout_marginBottom="6dp"
+                android:layout_marginEnd="-93dp"
+                android:layout_marginBottom="22dp"
                 app:srcCompat="@drawable/cosa" />
 
             <TextView
@@ -53,10 +53,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="59dp"
-                android:layout_marginEnd="238dp"
-                android:layout_marginBottom="-2dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="82dp"
+                android:layout_marginEnd="237dp"
+                android:layout_marginBottom="-25dp"
                 android:text="Sucursal .."
                 android:textColor="@color/white"
                 android:textSize="30sp" />
@@ -64,13 +64,16 @@
 
         <GridLayout
             android:id="@+id/mainGrid"
-            android:layout_width="429dp"
-            android:layout_height="470dp"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_marginTop="1dp"
             android:layout_weight="8"
             android:alignmentMode="alignMargins"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+
             android:columnCount="2"
             android:columnOrderPreserved="false"
-            android:layout_marginTop="10dp"
             android:padding="14dp"
             android:rowCount="3">
 
@@ -80,7 +83,7 @@
             <android.support.v7.widget.CardView
                 android:id="@+id/btn_picking"
                 android:layout_width="0dp"
-                    android:layout_height="0dp"
+                android:layout_height="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_marginLeft="16dp"
