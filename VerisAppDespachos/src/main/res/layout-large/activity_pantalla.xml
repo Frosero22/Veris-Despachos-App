@@ -112,7 +112,7 @@
                         android:layout_height="wrap_content"
                         android:text="Picking"
                         android:textAlignment="center"
-                        android:textColor="#2979FF"
+                        android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
@@ -144,6 +144,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/nodisponible"
 
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp">
@@ -166,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:text="Pick Up"
                         android:textAlignment="center"
-                        android:textColor="#2979FF"
+                        android:textColor="@color/black"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
@@ -193,12 +194,6 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
                     android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/despachoo" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -233,12 +228,6 @@
                     android:layout_margin="16dp"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/calendar" />
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -272,12 +261,6 @@
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_margin="16dp"
                     android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/me_time" />
 
                     <TextView
                         android:layout_width="wrap_content"

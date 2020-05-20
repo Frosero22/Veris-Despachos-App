@@ -178,9 +178,9 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
                 //EN CASO QUE FALLE EL SERVICIO BOTA UN MENSAJE
                 e.printStackTrace();
+                progressDialog.dismiss();
 
                 MensajeErrorServicio(e);
-                progressDialog.dismiss();
                 Log.e("Error","Error"+e);
 
 

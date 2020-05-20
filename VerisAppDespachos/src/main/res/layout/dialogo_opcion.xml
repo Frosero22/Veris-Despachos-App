@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/text_dialog"
-        android:layout_width="417dp"
+        android:layout_width="312dp"
         android:layout_height="wrap_content"
         android:layout_margin="42dp"
         android:gravity="center"
