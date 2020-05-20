@@ -273,7 +273,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
                         ArrayAdapter<Sucursales> adapterSucursales = new ArrayAdapter<Sucursales>(Login.this, android.R.layout.simple_dropdown_item_1line, lista);
-
+                        progressDialog.dismiss();
                         Looper.prepare();
                         AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
                         LayoutInflater inflater = getLayoutInflater();
@@ -289,6 +289,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                         ListaS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                                progressDialog = GenericUtil.barraCargando(Login.this,"Espere un momento...");
 
                                 int CodEmpresa = lista.get(position).getCodigoEmpresa();
                                 final int CodSucurusal =  lista.get(position).getCodigoSucursal();
@@ -371,13 +372,14 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                                               }
 
                                               if(val == 1){
-
+                                                    progressDialog.dismiss();
                                                   Intent intent = new Intent(Login.this,Pantalla_Principal.class);
                                                   intent.putExtra("User",User.getText().toString().trim());
                                                   intent.putExtra("CodSucursal",CodSucurusal);
                                                   intent.putExtra("NombreSucursal",NombreSucursal);
                                                   intent.putExtra("NombreUsuario",Nombre);
                                                   startActivity(intent);
+
                                               }else{
 
                                                   Log.e("Acceso Denegado","Credenciales Incorrectas" +jsonObject);
