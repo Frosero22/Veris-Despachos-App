@@ -281,7 +281,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                         builder.setView(view);
                         final AlertDialog dialogM = builder.create();
                         dialogM.show();
-                        dialogM.setCancelable(false);
+                       // dialogM.setCancelable(false);
                         ListView ListaS = view.findViewById(R.id.lista_sucursales);
 
                         ListaS.setAdapter(adapterSucursales);
@@ -363,42 +363,52 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
 
-                                                      Intent intent = new Intent(Login.this,Pantalla_Principal.class);
-                                                      intent.putExtra("User",User.getText().toString().trim());
-                                                      intent.putExtra("CodSucursal",CodSucurusal);
-                                                      intent.putExtra("NombreSucursal",NombreSucursal);
-                                                      intent.putExtra("NombreUsuario",Nombre);
-                                                      startActivity(intent);
 
 
-                                                  } else {
-
-                                                      Log.e("Acceso denegado", "No se encontro Rol Requerido");
-                                                      progressDialog.dismiss();
-                                                      Looper.prepare();
-
-                                                      AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                                                      LayoutInflater inflater = getLayoutInflater();
-                                                      View view = inflater.inflate(R.layout.dialogo_error,null);
-                                                      builder.setView(view);
-                                                      final AlertDialog dialog = builder.create();
-                                                      dialog.show();
-                                                      dialog.setCancelable(false);
-                                                      TextView txt = view.findViewById(R.id.text_error);
-                                                      txt.setText("No Se Encontraron Roles Necesarios");
-
-                                                      Button Aceptar = view.findViewById(R.id.btn_acept);
-                                                      Aceptar.setOnClickListener(new View.OnClickListener() {
-                                                          @Override
-                                                          public void onClick(View view) {
-                                                              dialog.dismiss();
-                                                          }
-
-
-                                                      });
-                                                      Looper.loop();
 
                                                   }
+
+                                              }
+
+                                              if(val == 1){
+
+                                                  Intent intent = new Intent(Login.this,Pantalla_Principal.class);
+                                                  intent.putExtra("User",User.getText().toString().trim());
+                                                  intent.putExtra("CodSucursal",CodSucurusal);
+                                                  intent.putExtra("NombreSucursal",NombreSucursal);
+                                                  intent.putExtra("NombreUsuario",Nombre);
+                                                  startActivity(intent);
+                                              }else{
+
+                                                  Log.e("Acceso Denegado","Credenciales Incorrectas" +jsonObject);
+                                                  progressDialog.dismiss();
+                                                  Looper.prepare();
+
+                                                  AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                                                  LayoutInflater inflater = getLayoutInflater();
+                                                  View view = inflater.inflate(R.layout.dialogo_error,null);
+                                                  builder.setView(view);
+                                                  final AlertDialog dialog = builder.create();
+                                                  dialog.show();
+                                                  dialog.setCancelable(false);
+                                                  TextView txt = view.findViewById(R.id.text_error);
+                                                  txt.setText("No Se Encontraron Roles Necesarios");
+
+                                                  Button Aceptar = view.findViewById(R.id.btn_acept);
+                                                  Aceptar.setOnClickListener(new View.OnClickListener() {
+                                                      @Override
+                                                      public void onClick(View view) {
+                                                          dialog.dismiss();
+                                                      }
+
+
+                                                  });
+                                                  Looper.loop();
+
+
+
+
+
 
 
 
@@ -406,38 +416,6 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
 
-                                          }else{
-
-
-                                              progressDialog.dismiss();
-                                              Looper.prepare();
-                                              AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-
-                                              LayoutInflater inflater = getLayoutInflater();
-
-                                              View view = inflater.inflate(R.layout.dialogo_error,null);
-
-                                              builder.setView(view);
-
-                                              final AlertDialog dialog = builder.create();
-                                              dialog.show();
-                                              dialog.setCancelable(false);
-                                              TextView txt = view.findViewById(R.id.text_error);
-                                              txt.setText("Usuario o Contraseña Invalido --> Crendeciales Invalidas");
-
-                                              Button Aceptar = view.findViewById(R.id.btn_acept);
-                                              Aceptar.setOnClickListener(new View.OnClickListener() {
-                                                  @Override
-                                                  public void onClick(View view) {
-                                                      dialog.dismiss();
-                                                  }
-
-
-                                              });
-                                              Looper.loop();
-
-
-                                              Log.e("MENSAJE","-> Credencioanles invalidas sea Usuario contra");
                                           }
 
 
@@ -458,6 +436,38 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
                     });
+
+                    }else{
+
+                        progressDialog.dismiss();
+                        Looper.prepare();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+
+                        LayoutInflater inflater = getLayoutInflater();
+
+                        View view = inflater.inflate(R.layout.dialogo_error,null);
+
+                        builder.setView(view);
+
+                        final AlertDialog dialog = builder.create();
+                        dialog.show();
+                        dialog.setCancelable(false);
+                        TextView txt = view.findViewById(R.id.text_error);
+                        txt.setText("Usuario o Contraseña Invalido --> Crendeciales Invalidas");
+
+                        Button Aceptar = view.findViewById(R.id.btn_acept);
+                        Aceptar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialog.dismiss();
+
+                            }
+                        });
+
+
+
+
+
 
                     }
 

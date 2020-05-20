@@ -41,7 +41,12 @@ public class Pantalla_Principal extends AppCompatActivity  {
     private ZXingScannerView mScannerView;
 
     private ProgressDialog progressDialog;
-    String Usuario, Token, Nombre, CodigoSucursal, NombreSucursal;
+    String Usuario;
+    String Token;
+    String Nombre;
+    int CodigoSucursal;
+    String NombreSucursal;
+    TextView Nombres, Nsucursal;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -54,8 +59,19 @@ public class Pantalla_Principal extends AppCompatActivity  {
         Bundle bundle = this.getIntent().getExtras();
         Usuario = bundle.getString("User","----");
         Nombre = bundle.getString("NombreUsuario","----");
-        CodigoSucursal = bundle.getString("CodSucursal","----");
+        CodigoSucursal = bundle.getInt("CodSucursal");
+        Log.e("CODIGO","RETORNADO ---> " +CodigoSucursal);
         NombreSucursal = bundle.getString("NombreSucursal","----");
+
+
+        Nombres = findViewById(R.id.txt_Nombre);
+        Nombres.setText("BIENVENIDO " +Nombre);
+
+        Nsucursal = findViewById(R.id.txt_Sucursal);
+        Nsucursal.setText("SUCURSAL "+NombreSucursal);
+
+
+
 
 
         Picking = findViewById(R.id.btn_picking);
@@ -262,7 +278,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
                             Request post = new Request.Builder()
-                                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+Id.getText().toString().trim()+"&argCodUsuario="+Usuario+"&argCodSucursal=1")
+                                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+Id.getText().toString().trim()+"&argCodUsuario="+Usuario+"&argCodSucursal="+CodigoSucursal)
 
                                     .post(postBody)
                                     .addHeader("Authorization", "Bearer "+Token)
@@ -424,7 +440,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
             Request post = new Request.Builder()
-                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion=" + IdSoliticitud.trim() + "&argCodUsuario=" + Usuario+"&argCodSucursal=1")
+                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion=" + IdSoliticitud.trim() + "&argCodUsuario=" + Usuario+"&argCodSucursal="+CodigoSucursal)
 
                     .post(postBody)
 
