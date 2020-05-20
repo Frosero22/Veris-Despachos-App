@@ -41,7 +41,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
     private ZXingScannerView mScannerView;
 
     private ProgressDialog progressDialog;
-    String Usuario, Token;
+    String Usuario, Token, Nombre, CodigoSucursal, NombreSucursal;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -50,8 +50,13 @@ public class Pantalla_Principal extends AppCompatActivity  {
         setContentView(R.layout.activity_pantalla);
         time time = new time();
         time.execute();
+
         Bundle bundle = this.getIntent().getExtras();
         Usuario = bundle.getString("User","----");
+        Nombre = bundle.getString("NombreUsuario","----");
+        CodigoSucursal = bundle.getString("CodSucursal","----");
+        NombreSucursal = bundle.getString("NombreSucursal","----");
+
 
         Picking = findViewById(R.id.btn_picking);
         Picking.setOnClickListener(new View.OnClickListener() {

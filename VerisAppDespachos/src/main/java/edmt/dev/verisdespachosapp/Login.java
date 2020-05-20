@@ -16,10 +16,14 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,8 +35,11 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import edmt.dev.verisdespachosapp.ApiS.ApisVeris;
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
+import edmt.dev.verisdespachosapp.ApiS.Sucursales;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -41,13 +48,16 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import retrofit2.http.GET;
 
 
 public class Login extends AppCompatActivity {
 Button LoginD;
 CheckBox VerContraseña;
 String Token;
+    String Nombre;
 EditText User;
+String Sucu;
 EditText Pass;
  Integer val = 0;
 private static ProgressDialog progressDialog;
@@ -195,7 +205,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
         final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody postBody = RequestBody.create(JSON, postData.toString());
         Request post = new Request.Builder()
-                .url("http://52.7.160.244:8223/Verisrest/v1/formularioepi1/loginUser")
+                .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/loginUser")
                 .post(postBody)
 
                 .addHeader("Authorization", "Bearer "+Token)
@@ -206,13 +216,13 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.e("Error","Error al ejecutarr servicio" +e);
+                Log.e("Error", "Error al ejecutarr servicio" + e);
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-
                 try {
+
                     ResponseBody responseBody = response.body();
                     if (!response.isSuccessful()) {
 
@@ -221,126 +231,255 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
                         throw new IOException("Error Inesperado " + response);
                     }
+                    final ArrayList<Sucursales> lista = new ArrayList<Sucursales>();
+
 
                     assert responseBody != null;
-                    //Declaro el Jsonobjet para capturar el response
-                    JSONObject jsonObject = new JSONObject(responseBody.string());
-                    // obtengo el primer dato dentro del objeto y condicion
-                    if(jsonObject.getInt("codigo")==0) {
+                    JSONObject jsonSucursales = new JSONObject(responseBody.string());
 
-                        String listaRol = jsonObject.getString("lsUsuarioXRol");
-                        JSONArray jsonArray = new JSONArray(listaRol);
+                    Log.e("DATOS","--->" +jsonSucursales);
+
+                    if (jsonSucursales.getInt("codigo") == 0) {
 
 
 
-
-                        for (int a = 0; a < jsonArray.length(); a++) {
-
-                            JSONObject json = jsonArray.getJSONObject(a);
+                        String listaSucursales = jsonSucursales.getString("lsSucursales");
+                        JSONArray jsonArray = new JSONArray(listaSucursales);
 
 
-                            Log.e("ARRAYS","ENCONTRADOS " +json.getString("codigoRol"));
+                        Log.e("LISTA","--->"+listaSucursales);
 
+                        for(int sucursales = 0; sucursales < jsonArray.length(); sucursales++){
 
-                            if (json.getString("codigoRol").equalsIgnoreCase("DESPACHO_FARMACIA")) {
+                            Sucursales e = new Sucursales();
+                            e.setNombreSucursal(jsonArray.getJSONObject(sucursales).getString("nombreSucursal"));
+                            e.setCodigoEmpresa(jsonArray.getJSONObject(sucursales).getInt("codigoEmpresa"));
+                            e.setCodigoSucursal(jsonArray.getJSONObject(sucursales).getInt("codigoSucursal"));
 
-                                    Log.e("JSON "," es " +json.getString("codigoRol"));
-
-                                    val = 1;
-
-                            }else{
-
-                                Log.e("Acceso denegado","No se encontro Rol Requerido");
-
-                            }
+                            lista.add(e);
 
                         }
 
-                        if(val == 1){
-                            //ingresa
-                            Log.e("Ok","Acceso Listo");
-
-                            Intent intent = new Intent(Login.this,Pantalla_Principal.class);
-                            intent.putExtra("User",User.getText().toString().trim());
-                            startActivity(intent);
-                            progressDialog.dismiss();
-                        }else{
-
-                            Log.e("Acceso Denegado","Credenciales Incorrectas" +jsonObject);
-                            progressDialog.dismiss();
-                            Looper.prepare();
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                            LayoutInflater inflater = getLayoutInflater();
-                            View view = inflater.inflate(R.layout.dialogo_error,null);
-                            builder.setView(view);
-                            final AlertDialog dialog = builder.create();
-                            dialog.show();
-                            dialog.setCancelable(false);
-                            TextView txt = view.findViewById(R.id.text_error);
-                            txt.setText("No Se Encontraron Roles Necesarios");
-
-                            Button Aceptar = view.findViewById(R.id.btn_acept);
-                            Aceptar.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    dialog.dismiss();
-                                }
+                        String datosUsuario = jsonSucursales.getString("usuario");
+                        JSONObject json = new JSONObject(datosUsuario);
 
 
-                            });
-                            Looper.loop();
+                              Nombre = json.getString("nombreUsuario");
+                                Log.e("USUARIO ","----->"+Nombre);
 
 
-                        }
 
-                    }else {
-                        progressDialog.dismiss();
+
+
+
+                        ArrayAdapter<Sucursales> adapterSucursales = new ArrayAdapter<Sucursales>(Login.this, android.R.layout.simple_dropdown_item_1line, lista);
+
                         Looper.prepare();
                         AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-
                         LayoutInflater inflater = getLayoutInflater();
-
-                        View view = inflater.inflate(R.layout.dialogo_error,null);
-
+                        View view = inflater.inflate(R.layout.sucursales, null);
                         builder.setView(view);
+                        final AlertDialog dialogM = builder.create();
+                        dialogM.show();
+                        dialogM.setCancelable(false);
+                        ListView ListaS = view.findViewById(R.id.lista_sucursales);
 
-                        final AlertDialog dialog = builder.create();
-                        dialog.show();
-                            dialog.setCancelable(false);
-                        TextView txt = view.findViewById(R.id.text_error);
-                        txt.setText("Usuario o Contraseña Invalido --> Crendeciales Invalidas");
+                        ListaS.setAdapter(adapterSucursales);
 
-                        Button Aceptar = view.findViewById(R.id.btn_acept);
-                        Aceptar.setOnClickListener(new View.OnClickListener() {
+                        ListaS.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
-                            public void onClick(View view) {
-                                dialog.dismiss();
-                            }
+                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                                int CodEmpresa = lista.get(position).getCodigoEmpresa();
+                                final int CodSucurusal =  lista.get(position).getCodigoSucursal();
+                                final String NombreSucursal = lista.get(position).getNombreSucursal();
+
+                                Log.e("CODIGO","------>"+CodEmpresa);
+                                Log.e("SUCURSAL","----->"+CodSucurusal);
+                                Log.e("NOMBRE","----->"+NombreSucursal);
 
 
-                        });
-                        Looper.loop();
+                                OkHttpClient client = new OkHttpClient().newBuilder()
+                                        .build();
 
 
-                        Log.e("MENSAJE","-> Credencioanles invalidas sea Usuario contra");
+                                Request request = new Request.Builder()
+                                        .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/rolesPorSucursalUsuario?argCodEmpresa="+CodEmpresa+"&argCodSucursal="+CodSucurusal+"&argUsuario="+User.getText().toString())
+                                        .method("GET",null)
+                                        .addHeader("Authorization", "Bearer "+Token)
+                                        .build();
+
+
+
+                                client.newCall(request).enqueue(new Callback() {
+
+
+                                    @Override
+                                    public void onFailure(Call call, IOException e) {
+
+                                        Log.e("ERROR","----> "+call);
+                                    }
+
+                                    @Override
+                                    public void onResponse(Call call, Response response) throws IOException {
+
+
+                                        ResponseBody responseBody = response.body();
+
+                                        Log.e("RESPONDE","----> " +response);
+                                        Log.e("CALL","----> "+call);
+
+
+                                        Log.e("RESPONSEBODY --> ","---> " +responseBody);
+
+
+                                      try {
+
+                                          JSONObject jsonObject = new JSONObject(responseBody.string());
+
+                                          Log.e("JSONOBJECT ","--->" +jsonObject);
+
+                                              if (jsonObject.getString("success").equalsIgnoreCase("OK")) {
+
+
+
+
+                                              String listaRol = jsonObject.getString("lsUsuarioXRol");
+                                              JSONArray jsonArray = new JSONArray(listaRol);
+
+
+
+                                              for (int a = 0; a < jsonArray.length(); a++) {
+
+                                                  JSONObject json = jsonArray.getJSONObject(a);
+
+                                                  Log.e("ARRAYS","ENCONTRADOS " +json.getString("codigoRol"));
+
+                                                  if (json.getString(("codigoRol")).equalsIgnoreCase("DESPACHO_FARMACIA")) {
+
+                                                      Log.e("JSON ", " es " + json.getString("codigoRol"));
+
+                                                      val = 1;
+
+
+
+                                                      Intent intent = new Intent(Login.this,Pantalla_Principal.class);
+                                                      intent.putExtra("User",User.getText().toString().trim());
+                                                      intent.putExtra("CodSucursal",CodSucurusal);
+                                                      intent.putExtra("NombreSucursal",NombreSucursal);
+                                                      intent.putExtra("NombreUsuario",Nombre);
+                                                      startActivity(intent);
+
+
+                                                  } else {
+
+                                                      Log.e("Acceso denegado", "No se encontro Rol Requerido");
+                                                      progressDialog.dismiss();
+                                                      Looper.prepare();
+
+                                                      AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                                                      LayoutInflater inflater = getLayoutInflater();
+                                                      View view = inflater.inflate(R.layout.dialogo_error,null);
+                                                      builder.setView(view);
+                                                      final AlertDialog dialog = builder.create();
+                                                      dialog.show();
+                                                      dialog.setCancelable(false);
+                                                      TextView txt = view.findViewById(R.id.text_error);
+                                                      txt.setText("No Se Encontraron Roles Necesarios");
+
+                                                      Button Aceptar = view.findViewById(R.id.btn_acept);
+                                                      Aceptar.setOnClickListener(new View.OnClickListener() {
+                                                          @Override
+                                                          public void onClick(View view) {
+                                                              dialog.dismiss();
+                                                          }
+
+
+                                                      });
+                                                      Looper.loop();
+
+                                                  }
+
+
+
+                                              }
+
+
+
+                                          }else{
+
+
+                                              progressDialog.dismiss();
+                                              Looper.prepare();
+                                              AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+
+                                              LayoutInflater inflater = getLayoutInflater();
+
+                                              View view = inflater.inflate(R.layout.dialogo_error,null);
+
+                                              builder.setView(view);
+
+                                              final AlertDialog dialog = builder.create();
+                                              dialog.show();
+                                              dialog.setCancelable(false);
+                                              TextView txt = view.findViewById(R.id.text_error);
+                                              txt.setText("Usuario o Contraseña Invalido --> Crendeciales Invalidas");
+
+                                              Button Aceptar = view.findViewById(R.id.btn_acept);
+                                              Aceptar.setOnClickListener(new View.OnClickListener() {
+                                                  @Override
+                                                  public void onClick(View view) {
+                                                      dialog.dismiss();
+                                                  }
+
+
+                                              });
+                                              Looper.loop();
+
+
+                                              Log.e("MENSAJE","-> Credencioanles invalidas sea Usuario contra");
+                                          }
+
+
+                                      }catch (Exception e){
+                                          e.printStackTrace();
+                                          Log.e("ERROR","-------> " +e);
+
+                                      }
+
+                                    }
+
+
+
+                                });
+
+
+                        }
+
+
+                    });
+
                     }
 
 
-
-                } catch (Exception e) {
-
-
+                }catch (Exception e){
                     e.printStackTrace();
-                    Log.e("Error","Error--->"+e);
+
                 }
-            }
-            });
+
+
+
+
+                Looper.loop();
 
                 val = 0;
 
             }
 
+
+
+        });
+    }
 
 
 
@@ -421,6 +560,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
         }
+
 
 
 

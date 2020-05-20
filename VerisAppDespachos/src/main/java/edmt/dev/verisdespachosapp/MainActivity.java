@@ -56,16 +56,16 @@ public class MainActivity extends AppCompatActivity {
 
         OkHttpClient client = new OkHttpClient();
         JsonObject postData = new JsonObject();
-        postData.addProperty("user","wsformularioepi1");
-        postData.addProperty("pass","CAS5789b86Mdr5F0rmular103pi1*");
+        postData.addProperty("user","wsphantomcajas");
+        postData.addProperty("pass","CAS5789b86Mdr5Ph@nT0mC@j@$");
 
 
         final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody postBody = RequestBody.create(JSON, postData.toString());
         Request post = new Request.Builder()
-                .url("http://52.7.160.244:8223/Verisrest/v1/formularioepi1/login")
+                .url("http://52.7.160.244:8118/PhantomCajasWS/api/authentications/login")
                 .post(postBody)
-                .addHeader("Authorization", "Basic  d3Nmb3JtdWxhcmlvZXBpMTpDQVM1Nzg5Yjg2TWRyNUYwcm11bGFyMTAzcGkxKg==" )
+                .addHeader("Authorization", "Basic  d3NwaGFudG9tY2FqYXM6Q0FTNTc4OWI4Nk1kcjVQaEBuVDBtQ0BqQCQ=" )
                 .build();
 
         client.newCall(post).enqueue(new Callback() {
