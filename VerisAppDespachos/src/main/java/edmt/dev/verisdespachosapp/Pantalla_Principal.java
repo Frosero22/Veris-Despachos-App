@@ -57,8 +57,10 @@ public class Pantalla_Principal extends AppCompatActivity  {
         time.execute();
 
         Bundle bundle = this.getIntent().getExtras();
+
         Usuario = bundle.getString("User","----");
         Nombre = bundle.getString("NombreUsuario","----");
+
         CodigoSucursal = bundle.getInt("CodSucursal");
         Log.e("CODIGO","RETORNADO ---> " +CodigoSucursal);
         NombreSucursal = bundle.getString("NombreSucursal","----");
@@ -111,7 +113,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
         @Override
         protected Boolean doInBackground(Void... voids) {
-//SE INDICA QUE CADA UNA HORA SE REPITA EL PROCESO
+        //SE INDICA QUE CADA UNA HORA SE REPITA EL PROCESO
             for(int i = 1; i == 1; i++){
 
                 try {
@@ -423,7 +425,14 @@ public class Pantalla_Principal extends AppCompatActivity  {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+
+                    if(result == null){
+
+                    }
+
 
         if (result != null) {
 
@@ -440,7 +449,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
             Request post = new Request.Builder()
-                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion=" + IdSoliticitud.trim() + "&argCodUsuario=" + Usuario+"&argCodSucursal="+CodigoSucursal)
+                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion=" +IdSoliticitud.trim()+ "&argCodUsuario=" + Usuario+"&argCodSucursal="+CodigoSucursal)
 
                     .post(postBody)
 
@@ -501,12 +510,6 @@ public class Pantalla_Principal extends AppCompatActivity  {
                     }
                 }
             });
-
-        } else {
-
-
-            Log.e("MENSAJE Error", "---------->  " + result.getContents());
-
 
         }
     }

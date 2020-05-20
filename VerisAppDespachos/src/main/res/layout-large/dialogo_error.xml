@@ -16,13 +16,13 @@
 
     <TextView
         android:id="@+id/text_error"
-        android:layout_width="341dp"
+        android:layout_width="417dp"
         android:layout_height="wrap_content"
         android:layout_margin="42dp"
         android:gravity="center"
         android:text="ELIJA UN METODO DE PICKING"
         android:textColor="#C62828"
-        android:textSize="25sp" />
+        android:textSize="28sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
