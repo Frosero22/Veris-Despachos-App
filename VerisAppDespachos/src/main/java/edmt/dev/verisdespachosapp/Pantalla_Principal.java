@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.JsonObject;
+import com.google.zxing.Result;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
@@ -35,7 +36,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 
-public class Pantalla_Principal extends AppCompatActivity  {
+public class Pantalla_Principal extends AppCompatActivity {
 
     CardView Picking;
     private ZXingScannerView mScannerView;
@@ -222,7 +223,6 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
 
-
     private void Dialogo(final String Token) {
         progressDialog.dismiss();
         Looper.prepare();
@@ -405,14 +405,26 @@ public class Pantalla_Principal extends AppCompatActivity  {
             }
         });
 
-        //ABRO EL LECTOR
+
         BotonLector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-              new IntentIntegrator(Pantalla_Principal.this).initiateScan();
+
+
+             IntentIntegrator integrator = new IntentIntegrator(Pantalla_Principal.this);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrator.setPrompt("Escanea El Codigo Qr");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setCaptureActivity(LectorPortrait.class);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.setOrientationLocked(false);
+                integrator.initiateScan();
+
 
             }
+
 
         });
 
@@ -421,27 +433,27 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
     }
 
+
+
 //METODO PARA EL LECTOR
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
-                    if(result == null){
-
-                    }
-
 
         if (result != null) {
 
-            Log.e("MENSAJE", "---------->  " + result.getContents());
 
             String IdSoliticitud = result.getContents();
 
             OkHttpClient client = new OkHttpClient();
+
+
             JSONObject postData = new JSONObject();
+
 
 
             final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -500,12 +512,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
                     }catch (Exception e){
 
-
-
-
-
-
-
+                        Log.e("MENSAJE","ERROR ----> " +e);
 
                     }
                 }
@@ -513,6 +520,8 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
         }
     }
+
+
 
     public void MensajeErrorPicking(){
         Looper.prepare();
@@ -545,10 +554,7 @@ public class Pantalla_Principal extends AppCompatActivity  {
 
 
 
-
     }
-
-
 
 
     public void MensajeErrorAplicacion(){
