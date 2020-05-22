@@ -35,7 +35,9 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import edmt.dev.verisdespachosapp.ApiS.ApisVeris;
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
@@ -48,6 +50,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import okio.Timeout;
 import retrofit2.http.GET;
 
 
@@ -97,7 +100,8 @@ private static ProgressDialog progressDialog;
                             LoginConToken();
 
                         } catch (JSONException e) {
-
+                            progressDialog.dismiss();
+                            MensajeErrorServico();
                             e.printStackTrace();
                         }
 
@@ -195,6 +199,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
         OkHttpClient client = new OkHttpClient();
         JSONObject postData = new JSONObject();
 
+
         postData.put("user",User.getText().toString().trim());
         postData.put("pass",Pass.getText().toString().trim());
 
@@ -207,8 +212,8 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
         Request post = new Request.Builder()
                 .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/loginUser")
                 .post(postBody)
-
                 .addHeader("Authorization", "Bearer "+Token)
+
                 .build();
 
         client.newCall(post).enqueue(new Callback() {
@@ -216,7 +221,11 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
             @Override
             public void onFailure(Call call, IOException e) {
+                progressDialog.dismiss();
+                MensajeErrorServico();
                 Log.e("Error", "Error al ejecutarr servicio" + e);
+
+
             }
 
             @Override
@@ -317,7 +326,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
                                     @Override
                                     public void onFailure(Call call, IOException e) {
-
+                                        MensajeErrorServico();
                                         Log.e("ERROR","----> "+call);
                                     }
 
@@ -562,7 +571,39 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
 
+    public void MensajeErrorServico(){
+        Looper.prepare();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
 
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
+
+
+        final AlertDialog dialogM = builder.create();
+        dialogM.show();
+        dialogM.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("Error al Ejecutar el Servicio Web, Comuníquese con el Área de Sistemas");
+
+        Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogM.dismiss();
+            }
+
+
+        });
+        Looper.loop();
+
+
+
+
+    }
 
 
 

@@ -522,7 +522,8 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
                     }catch (Exception e){
-
+                        progressDialog.dismiss();
+                        MensajeErrorServicio((IOException) e);
                         Log.e("MENSAJE","ERROR ----> " +e);
 
                     }
