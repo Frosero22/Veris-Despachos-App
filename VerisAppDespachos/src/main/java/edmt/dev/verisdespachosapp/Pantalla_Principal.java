@@ -335,7 +335,13 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
 
-                                        }
+                                        }else if(jsonObject.getString("mensaje").equalsIgnoreCase("Esta solicitud ya fue asignada a una guia de despacho.")){
+
+                                                        progressDialog.dismiss();
+                                                        MensajeAsignacion();
+
+
+                                                    }
 
 
 
@@ -507,7 +513,12 @@ public class Pantalla_Principal extends AppCompatActivity {
                             MensajeErrorPicking();
 
 
-                        }
+                        }else if(jsonObject.getString("mensaje").equalsIgnoreCase("Esta solicitud ya fue asignada a una guia de despacho.")){
+
+                          progressDialog.dismiss();
+                          MensajeAsignacion();
+
+                      }
 
 
                     }catch (Exception e){
@@ -625,7 +636,39 @@ public class Pantalla_Principal extends AppCompatActivity {
 
     }
 
+    public void MensajeAsignacion(){
+        Looper.prepare();
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(Pantalla_Principal.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
+
+        final AlertDialog dialogE = builder.create();
+
+        dialogE.show();
+
+        dialogE.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("Esta solicitud ya fue asignada a una guia de despacho");
+
+        Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogE.dismiss();
+            }
+
+
+        });
+        Looper.loop();
+
+
+    }
 
     public void MensajeExito(){
         Looper.prepare();

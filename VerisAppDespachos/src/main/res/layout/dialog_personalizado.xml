@@ -18,15 +18,15 @@
 
     <EditText
         android:id="@+id/edit_id"
-        android:layout_width="545dp"
+        android:layout_width="336dp"
         android:layout_height="72dp"
         android:layout_margin="42dp"
         android:background="@drawable/edit"
-        android:textColorHint="#2979FF"
         android:gravity="center"
         android:hint="Ingrese ID de Solicitud"
         android:inputType="number"
-        android:textColor="@android:color/background_dark"
+        android:textColor="#2979FF"
+        android:textColorHint="#2979FF"
         android:textSize="24sp" />
 
     <LinearLayout

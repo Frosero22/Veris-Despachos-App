@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:gravity="center"
-        android:text="Escoga Sucursal"
+        android:text="Seleccione una Sucursal"
         android:textColor="#2979FF"
         android:textSize="28sp" />
 

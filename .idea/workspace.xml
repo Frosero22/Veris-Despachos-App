@@ -21,29 +21,100 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="290615ca-ec24-409b-975e-ba7c27f3df4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_zxing_core_3_3_3_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp_okhttp_2_7_5_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/LectorPortrait.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-05-23-610.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-05-23-610.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-19-37-320.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-19-37-320.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-23-30-411.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-23-30-411.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-28-20-162.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-28-20-162.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-29-39-796.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-29-39-796.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-31-53-214.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-31-53-214.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-33-21-227.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-33-21-227.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-34-46-621.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-34-46-621.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-35-29-361.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-35-29-361.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-41-40-540.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-16-41-40-540.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-18-47-36-356.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-18-47-36-356.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-01-21-780.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-01-21-780.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-05-25-225.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-05-25-225.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-06-32-755.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-06-32-755.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-07-50-278.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-07-50-278.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-08-53-124.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-19-08-53-124.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-50-38-912.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-50-38-912.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-53-41-963.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-53-41-963.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-55-34-302.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-55-34-302.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-57-30-789.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-57-30-789.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-57-44-241.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-57-44-241.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-57-57-596.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-57-57-596.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-59-47-971.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-21-59-47-971.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-22-03-27-583.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-22-03-27-583.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-12-51-470.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-12-51-470.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-13-04-995.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-13-04-995.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-18-25-305.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-18-25-305.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-22-13-724.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-22-13-724.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-24-24-128.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-24-24-128.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-33-52-579.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-33-52-579.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-34-04-556.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-34-04-556.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-34-25-311.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-34-25-311.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-34-27-917.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-20-23-34-27-917.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-08-36-30-284.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-08-36-30-284.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-11-55-24-085.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-11-55-24-085.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-11-56-43-651.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-11-56-43-651.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-12-00-23-945.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-12-00-23-945.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-12-02-40-089.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-12-02-40-089.rawproto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-12-33-57-125.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/android-profile/profile-2020-05-21-12-33-57-125.rawproto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_zxing_core_3_3_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_journeyapps_zxing_android_embedded_3_2_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_journeyapps_zxing_android_embedded_3_6_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/dialog_personalizado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/dialog_personalizado.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/sucursales.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/sucursales.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_pantalla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_pantalla.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialog_personalizado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialog_personalizado.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialogo_exito.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialogo_exito.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/sucursales.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/sucursales.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -301,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590011069532</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Correcion al Lecto Listo">
+      <created>1590082786138</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1590082786139</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -333,6 +411,8 @@
     <MESSAGE value="APP LISTA 1.0" />
     <MESSAGE value="APP LISTA 1.1&#10;Progress dialog incorporado" />
     <MESSAGE value="Correciones de diseños" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correciones de diseños" />
+    <MESSAGE value="Correcion al Lecto Listo" />
+    <MESSAGE value="Validacion de Guia de despacho" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validacion de Guia de despacho" />
   </component>
 </project>
