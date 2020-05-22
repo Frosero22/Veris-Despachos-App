@@ -550,7 +550,7 @@ public class Pantalla_Principal extends AppCompatActivity {
         dialogM.setCancelable(false);
 
         TextView txt = view.findViewById(R.id.text_error);
-        txt.setText("Ya se realizo picking a esta solicitud.");
+        txt.setText("Ya se realizó picking a esta solicitud.");
 
         Button Aceptar = view.findViewById(R.id.btn_acept);
         Aceptar.setOnClickListener(new View.OnClickListener() {
@@ -585,7 +585,7 @@ public class Pantalla_Principal extends AppCompatActivity {
         dialogE.setCancelable(false);
 
         TextView txt = view.findViewById(R.id.text_error);
-        txt.setText("No existe el codigo de solicitud o numero de transaccion.");
+        txt.setText("No existe el código de solicitud o numero de transacción");
 
         Button Aceptar = view.findViewById(R.id.btn_acept);
         Aceptar.setOnClickListener(new View.OnClickListener() {
@@ -620,7 +620,7 @@ public class Pantalla_Principal extends AppCompatActivity {
         dialogE.setCancelable(false);
 
         TextView txt = view.findViewById(R.id.text_error);
-        txt.setText("Error al Ejecutar el Servicio Web, Comuniquese con el Area de Sistemas");
+        txt.setText("Error al Ejecutar el Servicio Web, Comuníquese con el Área de Sistemas");
 
         Button Aceptar = view.findViewById(R.id.btn_acept);
         Aceptar.setOnClickListener(new View.OnClickListener() {
@@ -654,7 +654,7 @@ public class Pantalla_Principal extends AppCompatActivity {
         dialogE.setCancelable(false);
 
         TextView txt = view.findViewById(R.id.text_error);
-        txt.setText("Esta solicitud ya fue asignada a una guia de despacho");
+        txt.setText("Esta solicitud ya fue asignada a una guía de despacho");
 
         Button Aceptar = view.findViewById(R.id.btn_acept);
         Aceptar.setOnClickListener(new View.OnClickListener() {
@@ -686,7 +686,7 @@ public class Pantalla_Principal extends AppCompatActivity {
         dialogX.setCancelable(false);
 
         TextView txt = view.findViewById(R.id.text_exito);
-        txt.setText("¡Picking Realizado Con Exito!");
+        txt.setText("¡Picking Realizado Con Éxito!");
 
         Button Aceptar = view.findViewById(R.id.btn_aceptar);
         Aceptar.setOnClickListener(new View.OnClickListener() {

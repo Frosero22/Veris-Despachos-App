@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="42dp"
         android:gravity="center"
-        android:text="ELIJA UN METODO DE PICKING"
+        android:text="Elija un método de picking"
         android:textColor="#2979FF"
         android:textSize="28sp" />
 
@@ -37,7 +37,7 @@
             android:layout_marginEnd="6dp"
             android:layout_weight="1"
             android:background="@drawable/boton"
-            android:text="Lector Qr"
+            android:text="Lector QR"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="20dp" />

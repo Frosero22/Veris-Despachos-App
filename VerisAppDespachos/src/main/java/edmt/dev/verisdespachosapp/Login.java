@@ -363,10 +363,6 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                                                       val = 1;
 
 
-
-
-
-
                                                   }
 
                                               }
@@ -455,7 +451,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                         dialog.show();
                         dialog.setCancelable(false);
                         TextView txt = view.findViewById(R.id.text_error);
-                        txt.setText("Usuario o Contraseña Invalido --> Crendeciales Invalidas");
+                        txt.setText("Usuario o Contraseña Invalido --> Credenciales Invalidas");
 
                         Button Aceptar = view.findViewById(R.id.btn_acept);
                         Aceptar.setOnClickListener(new View.OnClickListener() {
@@ -512,7 +508,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
         dialogM.setCancelable(false);
 
         TextView txt = view.findViewById(R.id.text_error);
-        txt.setText("Por favor Conectate a Internet");
+        txt.setText("Por favor Conéctate a Internet");
 
         Button Aceptar = view.findViewById(R.id.btn_acept);
         Aceptar.setOnClickListener(new View.OnClickListener() {
@@ -546,7 +542,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
         dialogM.setCancelable(false);
 
         TextView txt = view.findViewById(R.id.text_error);
-        txt.setText("Ocurrio un Error, Reinicia la Aplicación para poder Continuar");
+        txt.setText("Ocurrió un Error, Reinicia la Aplicación para poder Continuar");
 
         Button Aceptar = view.findViewById(R.id.btn_acept);
         Aceptar.setOnClickListener(new View.OnClickListener() {
