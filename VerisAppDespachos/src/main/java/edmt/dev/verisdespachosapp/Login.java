@@ -3,6 +3,7 @@ package edmt.dev.verisdespachosapp;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -261,6 +262,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                         for(int sucursales = 0; sucursales < jsonArray.length(); sucursales++){
 
                             Sucursales e = new Sucursales();
+
                             e.setNombreSucursal(jsonArray.getJSONObject(sucursales).getString("nombreSucursal"));
                             e.setCodigoEmpresa(jsonArray.getJSONObject(sucursales).getInt("codigoEmpresa"));
                             e.setCodigoSucursal(jsonArray.getJSONObject(sucursales).getInt("codigoSucursal"));
@@ -275,6 +277,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
                               Nombre = json.getString("nombreUsuario");
                                 Log.e("USUARIO ","----->"+Nombre);
+
 
 
 
@@ -300,13 +303,14 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                                 progressDialog = GenericUtil.barraCargando(Login.this,"Espere un momento...");
 
-                                int CodEmpresa = lista.get(position).getCodigoEmpresa();
+                                final int CodEmpresa = lista.get(position).getCodigoEmpresa();
                                 final int CodSucurusal =  lista.get(position).getCodigoSucursal();
                                 final String NombreSucursal = lista.get(position).getNombreSucursal();
 
                                 Log.e("CODIGO","------>"+CodEmpresa);
                                 Log.e("SUCURSAL","----->"+CodSucurusal);
                                 Log.e("NOMBRE","----->"+NombreSucursal);
+
 
 
                                 OkHttpClient client = new OkHttpClient().newBuilder()
@@ -336,18 +340,14 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
                                         ResponseBody responseBody = response.body();
 
-                                        Log.e("RESPONDE","----> " +response);
-                                        Log.e("CALL","----> "+call);
 
-
-                                        Log.e("RESPONSEBODY --> ","---> " +responseBody);
 
 
                                       try {
 
                                           JSONObject jsonObject = new JSONObject(responseBody.string());
 
-                                          Log.e("JSONOBJECT ","--->" +jsonObject);
+
 
                                               if (jsonObject.getString("success").equalsIgnoreCase("OK")) {
 
@@ -379,6 +379,18 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                                               if(val == 1){
                                                     progressDialog.dismiss();
                                                   Intent intent = new Intent(Login.this,Pantalla_Principal.class);
+
+                                                  SharedPreferences preferences = getSharedPreferences("credenciales",Context.MODE_PRIVATE);
+                                                  String user = User.getText().toString();
+                                                  String pass = Pass.getText().toString();
+                                                  SharedPreferences.Editor editor = preferences.edit();
+                                                  editor.putString("user",user);
+                                                  editor.putString("pass",pass);
+                                                  editor.putString("nombreS",NombreSucursal);
+                                                  editor.putString("nombre",Nombre);
+                                                  editor.putInt("codSucursal",CodSucurusal);
+                                                  editor.commit();
+
                                                   intent.putExtra("User",User.getText().toString().trim());
                                                   intent.putExtra("CodSucursal",CodSucurusal);
                                                   intent.putExtra("NombreSucursal",NombreSucursal);
@@ -389,34 +401,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
                                                   Log.e("Acceso Denegado","Credenciales Incorrectas" +jsonObject);
                                                   progressDialog.dismiss();
-                                                  Looper.prepare();
-
-                                                  AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                                                  LayoutInflater inflater = getLayoutInflater();
-                                                  View view = inflater.inflate(R.layout.dialogo_error,null);
-                                                  builder.setView(view);
-                                                  final AlertDialog dialog = builder.create();
-                                                  dialog.show();
-                                                  dialog.setCancelable(false);
-                                                  TextView txt = view.findViewById(R.id.text_error);
-                                                  txt.setText("No Se Encontraron Roles Necesarios");
-
-                                                  Button Aceptar = view.findViewById(R.id.btn_acept);
-                                                  Aceptar.setOnClickListener(new View.OnClickListener() {
-                                                      @Override
-                                                      public void onClick(View view) {
-                                                          dialog.dismiss();
-                                                      }
-
-
-                                                  });
-                                                  Looper.loop();
-
-
-
-
-
-
+                                                  MensajeErrorRoles();
 
 
                                               }
@@ -428,6 +413,8 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
                                       }catch (Exception e){
                                           e.printStackTrace();
+                                          progressDialog.dismiss();
+                                          MensajeErrorServico();
                                           Log.e("ERROR","-------> " +e);
 
                                       }
@@ -447,39 +434,14 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                     }else{
 
                         progressDialog.dismiss();
-                        Looper.prepare();
-                        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-
-                        LayoutInflater inflater = getLayoutInflater();
-
-                        View view = inflater.inflate(R.layout.dialogo_error,null);
-
-                        builder.setView(view);
-
-                        final AlertDialog dialog = builder.create();
-                        dialog.show();
-                        dialog.setCancelable(false);
-                        TextView txt = view.findViewById(R.id.text_error);
-                        txt.setText("Usuario o Contraseña Invalido --> Credenciales Invalidas");
-
-                        Button Aceptar = view.findViewById(R.id.btn_acept);
-                        Aceptar.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                dialog.dismiss();
-
-                            }
-                        });
-
-
-
-
-
+                       MensajeErroLogin();
 
                     }
 
 
                 }catch (Exception e){
+                    progressDialog.dismiss();
+                    MensajeErrorServico();
                     e.printStackTrace();
 
                 }
@@ -497,6 +459,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
         });
     }
+
 
 
 
@@ -604,6 +567,80 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
     }
+
+
+    public void MensajeErroLogin(){
+        Looper.prepare();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
+
+
+        final AlertDialog dialogM = builder.create();
+        dialogM.show();
+        dialogM.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("Usuario o Contraseña Invalido --> Credenciales Invalidas");
+
+        Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogM.dismiss();
+            }
+
+
+        });
+        Looper.loop();
+
+
+
+
+    }
+
+
+    public void MensajeErrorRoles(){
+        Looper.prepare();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
+
+
+        final AlertDialog dialogM = builder.create();
+        dialogM.show();
+        dialogM.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("No Se Encontraron Roles Necesarios");
+
+        Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogM.dismiss();
+            }
+
+
+        });
+        Looper.loop();
+
+
+
+
+    }
+
+
+
+
 
 
 

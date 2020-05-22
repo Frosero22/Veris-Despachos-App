@@ -1,7 +1,9 @@
 package edmt.dev.verisdespachosapp;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Looper;
 import android.support.v7.app.AlertDialog;
@@ -54,6 +56,7 @@ public class Pantalla_Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla);
+        RecuperaToken();
         time time = new time();
         time.execute();
 
@@ -63,15 +66,15 @@ public class Pantalla_Principal extends AppCompatActivity {
         Nombre = bundle.getString("NombreUsuario","----");
 
         CodigoSucursal = bundle.getInt("CodSucursal");
-        Log.e("CODIGO","RETORNADO ---> " +CodigoSucursal);
         NombreSucursal = bundle.getString("NombreSucursal","----");
-
-
         Nombres = findViewById(R.id.txt_Nombre);
-        Nombres.setText("BIENVENIDO " +Nombre);
-
         Nsucursal = findViewById(R.id.txt_Sucursal);
-        Nsucursal.setText("SUCURSAL "+NombreSucursal);
+        CargarPreferencias();
+        RecuperaToken();
+
+
+
+
 
 
 
@@ -82,7 +85,7 @@ public class Pantalla_Principal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                       RecuperaToken();
+                Dialogo();
 
 
 
@@ -150,7 +153,6 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 //METODO PARA RECUPERAR EL TOKEN NECESARIO PARA LO SERVICIOS DE FARMACIA
     public String RecuperaToken(){
-        progressDialog = GenericUtil.barraCargando(Pantalla_Principal.this,"Espere un Momento...");
 
 
 
@@ -179,7 +181,6 @@ public class Pantalla_Principal extends AppCompatActivity {
 
                 //EN CASO QUE FALLE EL SERVICIO BOTA UN MENSAJE
                 e.printStackTrace();
-                progressDialog.dismiss();
 
                 MensajeErrorServicio(e);
                 Log.e("Error","Error"+e);
@@ -203,7 +204,8 @@ public class Pantalla_Principal extends AppCompatActivity {
                     //CAPTURO EL TOKEN
                     Token = object.getString("accesToken");
                     //LE PASO EL TOKEN POR PARAMETRO A LOS DIALOGOS
-                    Dialogo(Token);
+
+
 
 
 
@@ -216,16 +218,16 @@ public class Pantalla_Principal extends AppCompatActivity {
                 }
             }
         });
+    return  Token;
 
-        return Token;
     }
 
 
 
 
-    private void Dialogo(final String Token) {
-        progressDialog.dismiss();
-        Looper.prepare();
+    private void Dialogo() {
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(Pantalla_Principal.this);
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.dialogo_opcion, null);
@@ -255,9 +257,19 @@ public class Pantalla_Principal extends AppCompatActivity {
                 final EditText Id = view.findViewById(R.id.edit_id);
 
                 Button BotonId = view.findViewById(R.id.btn_procesar);
+
+
                 BotonId.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+                        String Codigo = Id.getText().toString().trim();
+
+                        if(Codigo.isEmpty()){
+
+                            Toast.makeText(Pantalla_Principal.this, "INGRESE UN NUMERO DE SOLICITUD PARA CONTINUAR", Toast.LENGTH_LONG).show();
+                        }else{
+
                         progressDialog = GenericUtil.barraCargando(Pantalla_Principal.this,"Realizando Picking...");
 
                         try {
@@ -309,6 +321,8 @@ public class Pantalla_Principal extends AppCompatActivity {
                                     Log.e("RESPONSE BODY","--->"  +responseBody);
 
                                     try {
+
+
 
 
                                         //CAPTURO EL JSON QUE ME RETORNA EL SERVICIO
@@ -394,8 +408,11 @@ public class Pantalla_Principal extends AppCompatActivity {
 
                         }
 
+                        }
                     }
+
                 });
+
 
 
                 Button BotonCancelar = view.findViewById(R.id.btn_cancelar_pick);
@@ -435,7 +452,7 @@ public class Pantalla_Principal extends AppCompatActivity {
         });
 
 
-        Looper.loop();
+
 
     }
 
@@ -448,6 +465,8 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+
+
 
 
         if (result != null) {
@@ -467,7 +486,7 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
             Request post = new Request.Builder()
-                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion=" +IdSoliticitud.trim()+ "&argCodUsuario=" + Usuario+"&argCodSucursal="+CodigoSucursal)
+                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+IdSoliticitud+"&argCodUsuario=" + Usuario+"&argCodSucursal="+CodigoSucursal)
 
                     .post(postBody)
 
@@ -522,8 +541,6 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
                     }catch (Exception e){
-                        progressDialog.dismiss();
-                        MensajeErrorServicio((IOException) e);
                         Log.e("MENSAJE","ERROR ----> " +e);
 
                     }
@@ -533,7 +550,25 @@ public class Pantalla_Principal extends AppCompatActivity {
         }
     }
 
+    private void CargarPreferencias(){
 
+    SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+    String user = preferences.getString("user","");
+    String nombreSucursal = preferences.getString("nombreS","");
+    Log.e("PREFERENCIA","-----> " +nombreSucursal);
+    int codSucursal = preferences.getInt("codSucursal",CodigoSucursal);
+    Log.e("PREFERENCIA","CODIGO"+codSucursal);
+    String nombreUsuario = preferences.getString("nombre","");
+
+
+    Nombres.setText("BIENVENIDO " +nombreUsuario);
+
+    Nsucursal.setText("SUCURSAL "+nombreSucursal);
+
+
+
+
+}
 
     public void MensajeErrorPicking(){
         Looper.prepare();

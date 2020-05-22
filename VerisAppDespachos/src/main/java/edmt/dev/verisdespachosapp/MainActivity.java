@@ -1,11 +1,19 @@
 package edmt.dev.verisdespachosapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.gson.JsonObject;
 
@@ -28,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
     Handler handler;
     Runnable runnable;
     ImageView img;
-    String Token;
+    String Token, TokenFarmacia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RecuperaToken();
+        RecuperaTokenLogin();
         img = findViewById(R.id.img);
          img.animate().alpha(4000).setDuration(0);
 
@@ -52,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public String RecuperaToken(){
+    public String RecuperaTokenLogin(){
 
         OkHttpClient client = new OkHttpClient();
         JsonObject postData = new JsonObject();
@@ -108,4 +116,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
