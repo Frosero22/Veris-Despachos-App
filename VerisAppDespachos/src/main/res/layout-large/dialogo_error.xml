@@ -16,8 +16,8 @@
 
     <TextView
         android:id="@+id/text_error"
-        android:layout_width="418dp"
-        android:layout_height="94dp"
+        android:layout_width="421dp"
+        android:layout_height="130dp"
         android:layout_margin="42dp"
         android:gravity="center"
         android:text="ELIJA UN METODO DE PICKING"

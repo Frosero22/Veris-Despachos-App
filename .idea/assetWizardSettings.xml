@@ -50,7 +50,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="64" />
+                                                <entry key="scalingPercent" value="4" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -75,7 +75,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="135" />
+                                                <entry key="scalingPercent" value="146" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -97,9 +97,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundColor" value="0073ff" />
-                                      <entry key="foregroundImage" value="C:\Users\favil\OneDrive\Escritorio\logoss.png" />
-                                      <entry key="foregroundLayerName" value="logo_veris_app" />
+                                      <entry key="foregroundImage" value="C:\Users\favil\Downloads\cossasda.jpg" />
                                       <entry key="outputName" value="logo_veris" />
                                     </map>
                                   </option>

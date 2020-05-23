@@ -8,7 +8,7 @@
     <application
         android:name=".ApiS.AppVerisDespachos"
         android:allowBackup="true"
-        android:icon="@mipmap/logo_veris_app"
+        android:icon="@mipmap/logo_veris"
         android:label="Despachos"
         android:roundIcon="@mipmap/logo_veris_round"
         android:supportsRtl="true"
