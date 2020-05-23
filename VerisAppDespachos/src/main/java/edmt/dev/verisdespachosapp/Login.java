@@ -58,7 +58,7 @@ import retrofit2.http.GET;
 public class Login extends AppCompatActivity {
 Button LoginD;
 CheckBox VerContraseña;
-String Token;
+String Tokens;
     String Nombre;
 EditText User;
 String Sucu;
@@ -71,9 +71,13 @@ private static ProgressDialog progressDialog;
         setContentView(R.layout.activity_login);
          User = findViewById(R.id.edit_user);
          Pass = findViewById(R.id.edit_pass);
+
+        SharedPreferences preferences = getSharedPreferences("token",Context.MODE_PRIVATE);
+        Tokens = preferences.getString("token","");
+
+
         Bundle bundle = this.getIntent().getExtras();
-         Token = bundle.getString("Token","----");
-         Log.e("TOKEN","RECOGIDO ----> "+Token);
+         Log.e("TOKEN","RECOGIDO ----> "+Tokens);
 
         LoginD = findViewById(R.id.btn_login);
         LoginD.setOnClickListener(new View.OnClickListener() {
@@ -193,7 +197,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
 
-          Log.e("Token Recogido --->","Token   " + Token);
+          Log.e("Token Recogido --->","Token   " + Tokens);
 
 
 
@@ -213,7 +217,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
         Request post = new Request.Builder()
                 .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/loginUser")
                 .post(postBody)
-                .addHeader("Authorization", "Bearer "+Token)
+                .addHeader("Authorization", "Bearer "+Tokens)
 
                 .build();
 
@@ -320,7 +324,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                                 Request request = new Request.Builder()
                                         .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/rolesPorSucursalUsuario?argCodEmpresa="+CodEmpresa+"&argCodSucursal="+CodSucurusal+"&argUsuario="+User.getText().toString())
                                         .method("GET",null)
-                                        .addHeader("Authorization", "Bearer "+Token)
+                                        .addHeader("Authorization", "Bearer "+Tokens)
                                         .build();
 
 
@@ -396,6 +400,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                                                   intent.putExtra("NombreSucursal",NombreSucursal);
                                                   intent.putExtra("NombreUsuario",Nombre);
                                                   startActivity(intent);
+                                                  finish();
 
                                               }else{
 
@@ -637,7 +642,6 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
 
 
     }
-
 
 
 

@@ -44,6 +44,8 @@ public class Pantalla_Principal extends AppCompatActivity {
     private ZXingScannerView mScannerView;
 
     private ProgressDialog progressDialog;
+    private long backPressedTime;
+    private Toast BackToast;
     String Usuario;
     String Token;
     String Nombre;
@@ -95,7 +97,31 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
     }
-        //EL PROCEDIMIENTO QUE SE LLEVA ACABO CUANDO SE ALCANZA LA HORA
+
+    @Override
+    public void onBackPressed() {
+
+
+
+        if(backPressedTime + 2000 > System.currentTimeMillis()){
+            Intent intent = new Intent(Pantalla_Principal.this,Login.class);
+            startActivity(intent);
+            finish();
+            super.onBackPressed();
+            return;
+        }else{
+         Toast.makeText(getBaseContext(), "VUELVA A PULSAR PARA CERRAR SESIÓN", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+
+        backPressedTime = System.currentTimeMillis();
+
+
+    }
+
+    //EL PROCEDIMIENTO QUE SE LLEVA ACABO CUANDO SE ALCANZA LA HORA
     public void Ejecutar(){
         time time = new time();
         time.execute();

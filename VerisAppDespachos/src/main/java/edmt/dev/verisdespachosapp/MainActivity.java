@@ -95,7 +95,11 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject object = new JSONObject(response.body().string());
                     Log.e("Token" ,"Token ->" + object.getString("accesToken"));
                     Token = object.getString("accesToken");
-
+                    SharedPreferences preferences = getSharedPreferences("token",Context.MODE_PRIVATE);
+                    String TOKEN = Token;
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("token",TOKEN);
+                    editor.commit();
 
                     Log.e("Ok","Token Generado");
                 } catch (Exception e) {

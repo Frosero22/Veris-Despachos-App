@@ -23,16 +23,17 @@
     <list default="true" id="290615ca-ec24-409b-975e-ba7c27f3df4d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_pantalla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_pantalla.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialog_personalizado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialog_personalizado.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialogo_error.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialogo_error.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/sucursales.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/sucursales.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -320,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590189833182</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Tiempo de Expiracion listo">
+      <created>1590195687982</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1590195687983</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,6 +365,7 @@
     <MESSAGE value="Falta SharedPreferences" />
     <MESSAGE value="Falta Shared Preferences&#10;Apis Listas para Incorporar&#10;Mensajes de OnFailure Validados" />
     <MESSAGE value="Preferences Incorporado&#10;Falta Optimizar Servicios&#10;Lector Reparado&#10;Validacion para no Campo vacio de Id" />
-    <option name="LAST_COMMIT_MESSAGE" value="Preferences Incorporado&#10;Falta Optimizar Servicios&#10;Lector Reparado&#10;Validacion para no Campo vacio de Id" />
+    <MESSAGE value="Tiempo de Expiracion listo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tiempo de Expiracion listo" />
   </component>
 </project>
