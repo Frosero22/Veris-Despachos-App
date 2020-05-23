@@ -99,7 +99,7 @@ public class Pantalla_Principal extends AppCompatActivity {
     public void Ejecutar(){
         time time = new time();
         time.execute();
-        Intent intent = new Intent(Pantalla_Principal.this,Login.class);
+        Intent intent = new Intent(Pantalla_Principal.this,MainActivity.class);
         startActivity(intent);
         finish();
     }
@@ -107,7 +107,7 @@ public class Pantalla_Principal extends AppCompatActivity {
         //INDICA EL TIEMPO DE SESION MAXIMO
     public void ExpiraSesion() throws InterruptedException {
         //1 HORA
-        Thread.sleep(3600000);
+        Thread.sleep(86400000);
     }
 
 
