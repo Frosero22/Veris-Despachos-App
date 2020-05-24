@@ -58,27 +58,17 @@ public class Pantalla_Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla);
-        RecuperaToken();
         time time = new time();
         time.execute();
 
         Bundle bundle = this.getIntent().getExtras();
 
-        Usuario = bundle.getString("User","----");
-        Nombre = bundle.getString("NombreUsuario","----");
+        Token = bundle.getString("Token","----");
+        Log.e("TOKEN OBTENIDO","----------->" +Token);
 
-        CodigoSucursal = bundle.getInt("CodSucursal");
-        NombreSucursal = bundle.getString("NombreSucursal","----");
         Nombres = findViewById(R.id.txt_Nombre);
         Nsucursal = findViewById(R.id.txt_Sucursal);
         CargarPreferencias();
-        RecuperaToken();
-
-
-
-
-
-
 
 
 
@@ -178,75 +168,6 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
 //METODO PARA RECUPERAR EL TOKEN NECESARIO PARA LO SERVICIOS DE FARMACIA
-    public String RecuperaToken(){
-
-
-
-        OkHttpClient client = new OkHttpClient();
-        JsonObject postData = new JsonObject();
-
-        //CREDENCIALES DE AUTORIZACION PARA EJECUTAR EL SERVICIO
-
-        postData.addProperty("user","wsphantomcajas");
-        postData.addProperty("pass","CAS5789b86Mdr5Ph@nT0mC@j@$");
-
-
-        final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-        RequestBody postBody = RequestBody.create(JSON, postData.toString());
-        Request post = new Request.Builder()
-
-                .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/authentications/login")
-                .post(postBody)
-                //SE COLOCA EL TOKEN
-                .addHeader("Authorization", "Basic  d3NwaGFudG9tY2FqYXM6Q0FTNTc4OWI4Nk1kcjVQaEBuVDBtQ0BqQCQ=" )
-                .build();
-
-        client.newCall(post).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-
-                //EN CASO QUE FALLE EL SERVICIO BOTA UN MENSAJE
-                e.printStackTrace();
-
-                MensajeErrorServicio(e);
-                Log.e("Error","Error"+e);
-
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    ResponseBody responseBody = response.body();
-                    if (!response.isSuccessful()) {
-
-                        throw new IOException("Error Inesperado " + response);
-                    }
-
-                    assert responseBody != null;
-                    //CAPTURO EL JSON GENERADO
-                    JSONObject object = new JSONObject(response.body().string());
-                    Log.e("Token" ,"Token ->" + object.getString("accesToken"));
-                    //CAPTURO EL TOKEN
-                    Token = object.getString("accesToken");
-                    //LE PASO EL TOKEN POR PARAMETRO A LOS DIALOGOS
-
-
-
-
-
-                    Log.e("Ok","Token Generado");
-                } catch (Exception e) {
-
-                    e.printStackTrace();
-
-                    Log.e("Error","Error--->"+e);
-                }
-            }
-        });
-    return  Token;
-
-    }
 
 
 
@@ -478,7 +399,7 @@ public class Pantalla_Principal extends AppCompatActivity {
         });
 
 
-
+        Looper.loop();
 
     }
 
@@ -588,6 +509,8 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
     Nombres.setText("BIENVENIDO " +nombreUsuario);
+
+    Usuario = user;
 
     Nsucursal.setText("SUCURSAL "+nombreSucursal);
 

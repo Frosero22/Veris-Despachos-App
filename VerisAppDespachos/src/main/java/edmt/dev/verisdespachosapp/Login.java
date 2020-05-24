@@ -8,10 +8,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Looper;
-import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -24,23 +22,17 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
-import edmt.dev.verisdespachosapp.ApiS.ApisVeris;
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
 import edmt.dev.verisdespachosapp.ApiS.Sucursales;
 import okhttp3.Call;
@@ -51,17 +43,14 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import okio.Timeout;
-import retrofit2.http.GET;
 
 
 public class Login extends AppCompatActivity {
 Button LoginD;
 CheckBox VerContraseña;
-String Tokens;
+String Token;
     String Nombre;
 EditText User;
-String Sucu;
 EditText Pass;
  Integer val = 0;
 private static ProgressDialog progressDialog;
@@ -72,12 +61,6 @@ private static ProgressDialog progressDialog;
          User = findViewById(R.id.edit_user);
          Pass = findViewById(R.id.edit_pass);
 
-        SharedPreferences preferences = getSharedPreferences("token",Context.MODE_PRIVATE);
-        Tokens = preferences.getString("token","");
-
-
-        Bundle bundle = this.getIntent().getExtras();
-         Log.e("TOKEN","RECOGIDO ----> "+Tokens);
 
         LoginD = findViewById(R.id.btn_login);
         LoginD.setOnClickListener(new View.OnClickListener() {
@@ -100,15 +83,7 @@ private static ProgressDialog progressDialog;
                         Pass.setError("Campo Obligatorio");
                     } else {
 
-                        try {
-
-                            LoginConToken();
-
-                        } catch (JSONException e) {
-                            progressDialog.dismiss();
-                            MensajeErrorServico();
-                            e.printStackTrace();
-                        }
+                        GeneraToken();
 
                     }
 
@@ -141,63 +116,68 @@ private static ProgressDialog progressDialog;
     }
 
 //TOKEN NECESARIO PARA TODOS LOS SERVICIOS RESTANTES - INACTIVO -
- /*   public String RecuperaToken(){
-progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
-        OkHttpClient client = new OkHttpClient();
-        JsonObject postData = new JsonObject();
-        postData.addProperty("user","wsformularioepi1");
-        postData.addProperty("pass","CAS5789b86Mdr5F0rmular103pi1*");
+public String GeneraToken(){
 
-
-        final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-        RequestBody postBody = RequestBody.create(JSON, postData.toString());
-        Request post = new Request.Builder()
-                .url("http://52.7.160.244:8223/Verisrest/v1/formularioepi1/login")
-                .post(postBody)
-                .addHeader("Authorization", "Basic  d3Nmb3JtdWxhcmlvZXBpMTpDQVM1Nzg5Yjg2TWRyNUYwcm11bGFyMTAzcGkxKg==" )
-                .build();
-
-        client.newCall(post).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-                Log.e("Error","Error"+e);
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    ResponseBody responseBody = response.body();
-                    if (!response.isSuccessful()) {
-
-                        throw new IOException("Error Inesperado " + response);
-                    }
-                    assert responseBody != null;
-                    JSONObject object = new JSONObject(response.body().string());
-                    Log.e("Token" ,"Token ->" + object.getString("accesToken"));
-                    Token = object.getString("accesToken");
-                 LoginConToken(Token);
-
-                    Log.e("Ok","Token Generado");
-                } catch (Exception e) {
-
-                    e.printStackTrace();
-                    Log.e("Error","Error--->"+e);
-                }
-            }
-        });
-
-            return Token;
-    }
-*/
-
-    public void LoginConToken() throws JSONException {
 
     progressDialog = GenericUtil.barraCargando(Login.this,"Ingresando...");
 
+    OkHttpClient client = new OkHttpClient();
+    JsonObject postData = new JsonObject();
+    postData.addProperty("user","wsphantomcajas");
+    postData.addProperty("pass","CAS5789b86Mdr5Ph@nT0mC@j@$");
 
 
-          Log.e("Token Recogido --->","Token   " + Tokens);
+    final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    RequestBody postBody = RequestBody.create(JSON, postData.toString());
+    Request post = new Request.Builder()
+            .url("http://52.7.160.244:8118/PhantomCajasWS/api/authentications/login")
+            .post(postBody)
+            .addHeader("Authorization", "Basic  d3NwaGFudG9tY2FqYXM6Q0FTNTc4OWI4Nk1kcjVQaEBuVDBtQ0BqQCQ=" )
+            .build();
+
+    client.newCall(post).enqueue(new Callback() {
+        @Override
+        public void onFailure(Call call, IOException e) {
+            e.printStackTrace();
+            progressDialog.dismiss();
+            MensajeErrorServico();
+            Log.e("Error","Error"+e);
+        }
+
+        @Override
+        public void onResponse(Call call, Response response) throws IOException {
+            try {
+                ResponseBody responseBody = response.body();
+                if (!response.isSuccessful()) {
+
+                    throw new IOException("Error Inesperado " + response);
+                }
+                assert responseBody != null;
+                JSONObject object = new JSONObject(response.body().string());
+                Log.e("Token" ,"Token ->" + object.getString("accesToken"));
+                Token = object.getString("accesToken");
+                LoginConToken(Token);
+
+                Log.e("Ok","Token Generado");
+            } catch (Exception e) {
+                progressDialog.dismiss();
+                MensajeErrorServico();
+                e.printStackTrace();
+                Log.e("Error","Error--->"+e);
+            }
+        }
+    });
+
+    return Token;
+}
+
+
+    public void LoginConToken(final String Token) throws JSONException {
+
+
+
+
+          Log.e("Token Recogido --->","Token   " + Token);
 
 
 
@@ -217,7 +197,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
         Request post = new Request.Builder()
                 .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/loginUser")
                 .post(postBody)
-                .addHeader("Authorization", "Bearer "+Tokens)
+                .addHeader("Authorization", "Bearer "+Token)
 
                 .build();
 
@@ -292,7 +272,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                         progressDialog.dismiss();
                         Looper.prepare();
                         AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                        LayoutInflater inflater = getLayoutInflater();
+                        final LayoutInflater inflater = getLayoutInflater();
                         View view = inflater.inflate(R.layout.sucursales, null);
                         builder.setView(view);
                         final AlertDialog dialogM = builder.create();
@@ -324,7 +304,7 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                                 Request request = new Request.Builder()
                                         .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/rolesPorSucursalUsuario?argCodEmpresa="+CodEmpresa+"&argCodSucursal="+CodSucurusal+"&argUsuario="+User.getText().toString())
                                         .method("GET",null)
-                                        .addHeader("Authorization", "Bearer "+Tokens)
+                                        .addHeader("Authorization", "Bearer "+Token)
                                         .build();
 
 
@@ -389,16 +369,12 @@ progressDialog = GenericUtil.barraCargando(Login.this,"Espere un Momento...");
                                                   String pass = Pass.getText().toString();
                                                   SharedPreferences.Editor editor = preferences.edit();
                                                   editor.putString("user",user);
-                                                  editor.putString("pass",pass);
                                                   editor.putString("nombreS",NombreSucursal);
                                                   editor.putString("nombre",Nombre);
                                                   editor.putInt("codSucursal",CodSucurusal);
                                                   editor.commit();
-
-                                                  intent.putExtra("User",User.getText().toString().trim());
-                                                  intent.putExtra("CodSucursal",CodSucurusal);
-                                                  intent.putExtra("NombreSucursal",NombreSucursal);
-                                                  intent.putExtra("NombreUsuario",Nombre);
+                                                  intent.putExtra("Token",Token);
+                                                  Log.e("TOKEN ENVIADO","----> "+Token);
                                                   startActivity(intent);
                                                   finish();
 
