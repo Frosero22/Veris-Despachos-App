@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
+import edmt.dev.verisdespachosapp.ApiS.Preferencias;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -61,13 +62,31 @@ public class Pantalla_Principal extends AppCompatActivity {
         time time = new time();
         time.execute();
 
-        Bundle bundle = this.getIntent().getExtras();
+        SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
 
-        Token = bundle.getString("Token","----");
-        Log.e("TOKEN OBTENIDO","----------->" +Token);
+        String user = preferences.getString("user","");
+        String nombreSucursal = preferences.getString("nombreS","");
+        Log.e("PREFERENCIA","-----> " +nombreSucursal);
+        int codSucursal = preferences.getInt("codSucursal",CodigoSucursal);
+        Log.e("PREFERENCIA","CODIGO"+codSucursal);
+        String nombreUsuario = preferences.getString("nombre","");
+       Token = preferences.getString("Token","");
+        Log.e("Token Obtenido","--------->" +Token);
+
+
+
 
         Nombres = findViewById(R.id.txt_Nombre);
         Nsucursal = findViewById(R.id.txt_Sucursal);
+
+
+        Nombres.setText("BIENVENIDO " +nombreUsuario);
+
+        Usuario = user;
+
+        Nsucursal.setText("SUCURSAL "+nombreSucursal);
+
+
         CargarPreferencias();
 
 
@@ -94,20 +113,22 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
         if(backPressedTime + 2000 > System.currentTimeMillis()){
+
+
+            Preferencias.savePreferenciaBoolean(Pantalla_Principal.this,false,"estado.buton.sesion");
+
             Intent intent = new Intent(Pantalla_Principal.this,Login.class);
             startActivity(intent);
             finish();
             super.onBackPressed();
             return;
         }else{
+
          Toast.makeText(getBaseContext(), "VUELVA A PULSAR PARA CERRAR SESIÓN", Toast.LENGTH_SHORT).show();
 
         }
 
-
-
         backPressedTime = System.currentTimeMillis();
-
 
     }
 
@@ -115,6 +136,7 @@ public class Pantalla_Principal extends AppCompatActivity {
     public void Ejecutar(){
         time time = new time();
         time.execute();
+        Preferencias.savePreferenciaBoolean(Pantalla_Principal.this,false,"estado.buton.sesion");
         Intent intent = new Intent(Pantalla_Principal.this,MainActivity.class);
         startActivity(intent);
         finish();
@@ -161,13 +183,6 @@ public class Pantalla_Principal extends AppCompatActivity {
 
         }
     }
-
-
-
-
-
-
-//METODO PARA RECUPERAR EL TOKEN NECESARIO PARA LO SERVICIOS DE FARMACIA
 
 
 
@@ -433,7 +448,7 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
             Request post = new Request.Builder()
-                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+IdSoliticitud+"&argCodUsuario=" + Usuario+"&argCodSucursal="+CodigoSucursal)
+                    .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+IdSoliticitud+"&argCodUsuario=" + Usuario+"&argCodSucursal="+CodigoSucursal)
 
                     .post(postBody)
 
@@ -499,20 +514,7 @@ public class Pantalla_Principal extends AppCompatActivity {
 
     private void CargarPreferencias(){
 
-    SharedPreferences preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
-    String user = preferences.getString("user","");
-    String nombreSucursal = preferences.getString("nombreS","");
-    Log.e("PREFERENCIA","-----> " +nombreSucursal);
-    int codSucursal = preferences.getInt("codSucursal",CodigoSucursal);
-    Log.e("PREFERENCIA","CODIGO"+codSucursal);
-    String nombreUsuario = preferences.getString("nombre","");
 
-
-    Nombres.setText("BIENVENIDO " +nombreUsuario);
-
-    Usuario = user;
-
-    Nsucursal.setText("SUCURSAL "+nombreSucursal);
 
 
 

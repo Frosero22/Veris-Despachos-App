@@ -34,6 +34,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
+import edmt.dev.verisdespachosapp.ApiS.Preferencias;
 import edmt.dev.verisdespachosapp.ApiS.Sucursales;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -53,14 +54,25 @@ import okhttp3.ResponseBody;
     EditText User;
     EditText Pass;
      Integer val = 0;
-    private static ProgressDialog progressDialog;
+
+        public static final String PREFERENCE_ESTADO_BUTTON_SESION = "estado.buton.sesion";
+
+        private static ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-         User = findViewById(R.id.edit_user);
-         Pass = findViewById(R.id.edit_pass);
 
+
+        if(Preferencias.obtenerPreferenciaBoolean(this,PREFERENCE_ESTADO_BUTTON_SESION)){
+            Intent i = new Intent(Login.this,Pantalla_Principal.class);
+            startActivity(i);
+            finish();
+        }
+
+
+        User = findViewById(R.id.edit_user);
+        Pass = findViewById(R.id.edit_pass);
 
         LoginD = findViewById(R.id.btn_login);
         LoginD.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +128,7 @@ import okhttp3.ResponseBody;
     }
 
 //TOKEN NECESARIO PARA TODOS LOS SERVICIOS RESTANTES - INACTIVO -
-public String GeneraToken(){
+    public String GeneraToken(){
 
 
     progressDialog = GenericUtil.barraCargando(Login.this,"Ingresando...");
@@ -365,6 +377,7 @@ public String GeneraToken(){
                                                   Intent intent = new Intent(Login.this,Pantalla_Principal.class);
 
                                                   SharedPreferences preferences = getSharedPreferences("credenciales",Context.MODE_PRIVATE);
+
                                                   String user = User.getText().toString();
                                                   String pass = Pass.getText().toString();
                                                   SharedPreferences.Editor editor = preferences.edit();
@@ -372,9 +385,14 @@ public String GeneraToken(){
                                                   editor.putString("nombreS",NombreSucursal);
                                                   editor.putString("nombre",Nombre);
                                                   editor.putInt("codSucursal",CodSucurusal);
-                                                  editor.commit();
-                                                  intent.putExtra("Token",Token);
+                                                  editor.putString("Token",Token);
+
                                                   Log.e("TOKEN ENVIADO","----> "+Token);
+
+                                                  editor.commit();
+
+                                                  Preferencias.savePreferenciaBoolean(Login.this,true,PREFERENCE_ESTADO_BUTTON_SESION);
+
                                                   startActivity(intent);
                                                   finish();
 
