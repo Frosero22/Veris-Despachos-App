@@ -239,7 +239,7 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
                             Request post = new Request.Builder()
-                                    .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+Id.getText().toString().trim()+"&argCodUsuario="+Usuario+"&argCodSucursal="+CodigoSucursal)
+                                    .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+Id.getText().toString().trim()+"&argCodUsuario="+Usuario+"&argCodSucursal="+CodigoSucursal)
 
                                     .post(postBody)
                                     .addHeader("Authorization", "Bearer "+Token)

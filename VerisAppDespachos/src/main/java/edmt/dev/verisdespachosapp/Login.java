@@ -45,15 +45,15 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 
-public class Login extends AppCompatActivity {
-Button LoginD;
-CheckBox VerContraseña;
-String Token;
-    String Nombre;
-EditText User;
-EditText Pass;
- Integer val = 0;
-private static ProgressDialog progressDialog;
+    public class Login extends AppCompatActivity {
+    Button LoginD;
+    CheckBox VerContraseña;
+    String Token;
+        String Nombre;
+    EditText User;
+    EditText Pass;
+     Integer val = 0;
+    private static ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,7 +130,7 @@ public String GeneraToken(){
     final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     RequestBody postBody = RequestBody.create(JSON, postData.toString());
     Request post = new Request.Builder()
-            .url("http://52.7.160.244:8118/PhantomCajasWS/api/authentications/login")
+            .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/authentications/login")
             .post(postBody)
             .addHeader("Authorization", "Basic  d3NwaGFudG9tY2FqYXM6Q0FTNTc4OWI4Nk1kcjVQaEBuVDBtQ0BqQCQ=" )
             .build();
@@ -195,7 +195,7 @@ public String GeneraToken(){
         final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         RequestBody postBody = RequestBody.create(JSON, postData.toString());
         Request post = new Request.Builder()
-                .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/loginUser")
+                .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/farmaciaDomicilio/loginUser")
                 .post(postBody)
                 .addHeader("Authorization", "Bearer "+Token)
 
@@ -302,7 +302,7 @@ public String GeneraToken(){
 
 
                                 Request request = new Request.Builder()
-                                        .url("http://52.7.160.244:8118/PhantomCajasWS/api/farmaciaDomicilio/rolesPorSucursalUsuario?argCodEmpresa="+CodEmpresa+"&argCodSucursal="+CodSucurusal+"&argUsuario="+User.getText().toString())
+                                        .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/farmaciaDomicilio/rolesPorSucursalUsuario?argCodEmpresa="+CodEmpresa+"&argCodSucursal="+CodSucurusal+"&argUsuario="+User.getText().toString())
                                         .method("GET",null)
                                         .addHeader("Authorization", "Bearer "+Token)
                                         .build();
