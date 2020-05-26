@@ -299,10 +299,12 @@ public class Pantalla_Principal extends AppCompatActivity {
                                                         MensajeExito();
 
 
+
                                                     }else if(jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")){
 
                                                     progressDialog.dismiss();
                                                     MensajeErrorAplicacion();
+
 
                                         }else if(jsonObject.getString("mensaje").equalsIgnoreCase("Ya se realizo picking a esta solicitud.")){
 
@@ -311,10 +313,12 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
 
+
                                         }else if(jsonObject.getString("mensaje").equalsIgnoreCase("Esta solicitud ya fue asignada a una guia de despacho.")){
 
                                                         progressDialog.dismiss();
                                                         MensajeAsignacion();
+
 
 
                                                     }
@@ -397,15 +401,7 @@ public class Pantalla_Principal extends AppCompatActivity {
 
 
 
-             IntentIntegrator integrator = new IntentIntegrator(Pantalla_Principal.this);
-                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-                integrator.setPrompt("Escanea El Codigo Qr");
-                integrator.setCameraId(0);
-                integrator.setBeepEnabled(false);
-                integrator.setCaptureActivity(LectorPortrait.class);
-                integrator.setBarcodeImageEnabled(false);
-                integrator.setOrientationLocked(false);
-                integrator.initiateScan();
+             AbreLector();
 
 
             }
@@ -480,24 +476,24 @@ public class Pantalla_Principal extends AppCompatActivity {
                       if (jsonObject.getString("mensaje").equalsIgnoreCase("OK")) {
 
 
-                         progressDialog.dismiss();
-                         MensajeExito();
+                         MensajeExitoLector();
+
 
                       }else if (jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")) {
 
-                            progressDialog.dismiss();
-                            MensajeErrorAplicacion();
+                            MensajeErrorAplicacionLector();
+
 
                         } else if (jsonObject.getString("mensaje").equalsIgnoreCase("Ya se realizo picking a esta solicitud.")) {
 
-                            progressDialog.dismiss();
-                            MensajeErrorPicking();
+                            MensajeErrorPickingLector();
+
 
 
                         }else if(jsonObject.getString("mensaje").equalsIgnoreCase("Esta solicitud ya fue asignada a una guia de despacho.")){
 
-                          progressDialog.dismiss();
-                          MensajeAsignacion();
+                          MensajeAsignacionLector();
+
 
                       }
 
@@ -544,6 +540,7 @@ public class Pantalla_Principal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dialogM.dismiss();
+
             }
 
 
@@ -554,6 +551,44 @@ public class Pantalla_Principal extends AppCompatActivity {
 
     }
 
+    public void MensajeExito(){
+        Looper.prepare();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Pantalla_Principal.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_exito, null);
+
+        builder.setView(view);
+
+
+        final AlertDialog dialogX = builder.create();
+        dialogX.show();
+        dialogX.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_exito);
+        txt.setText("¡Picking Realizado Con Éxito!");
+
+        Button Aceptar = view.findViewById(R.id.btn_aceptar);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogX.dismiss();
+
+
+
+
+            }
+
+
+        });
+        Looper.loop();
+
+
+
+
+
+    }
 
     public void MensajeErrorAplicacion(){
             Looper.prepare();
@@ -643,11 +678,12 @@ public class Pantalla_Principal extends AppCompatActivity {
         TextView txt = view.findViewById(R.id.text_error);
         txt.setText("Esta solicitud ya fue asignada a una guía de despacho");
 
-        Button Aceptar = view.findViewById(R.id.btn_acept);
+        final Button Aceptar = view.findViewById(R.id.btn_acept);
         Aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialogE.dismiss();
+
             }
 
 
@@ -657,7 +693,80 @@ public class Pantalla_Principal extends AppCompatActivity {
 
     }
 
-    public void MensajeExito(){
+
+    public void MensajeErrorPickingLector(){
+        Looper.prepare();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Pantalla_Principal.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
+
+
+        final AlertDialog dialogM = builder.create();
+        dialogM.show();
+        dialogM.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("Ya se realizó picking a esta solicitud.");
+
+        Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogM.dismiss();
+                AbreLector();
+
+            }
+
+
+        });
+        Looper.loop();
+
+
+
+    }
+
+    public void MensajeAsignacionLector(){
+        Looper.prepare();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Pantalla_Principal.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
+
+        final AlertDialog dialogE = builder.create();
+
+        dialogE.show();
+
+        dialogE.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("Esta solicitud ya fue asignada a una guía de despacho");
+
+        final Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogE.dismiss();
+                AbreLector();
+
+            }
+
+
+        });
+        Looper.loop();
+
+
+    }
+
+
+    public void MensajeExitoLector(){
         Looper.prepare();
         AlertDialog.Builder builder = new AlertDialog.Builder(Pantalla_Principal.this);
 
@@ -682,6 +791,8 @@ public class Pantalla_Principal extends AppCompatActivity {
                 dialogX.dismiss();
 
 
+
+
             }
 
 
@@ -699,8 +810,52 @@ public class Pantalla_Principal extends AppCompatActivity {
 
     }
 
+    public void MensajeErrorAplicacionLector(){
+        Looper.prepare();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Pantalla_Principal.this);
+
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialogo_error, null);
+
+        builder.setView(view);
 
 
+        final AlertDialog dialogE = builder.create();
+        dialogE.show();
+        dialogE.setCancelable(false);
+
+        TextView txt = view.findViewById(R.id.text_error);
+        txt.setText("No existe el código de solicitud o numero de transacción");
+
+        Button Aceptar = view.findViewById(R.id.btn_acept);
+        Aceptar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogE.dismiss();
+                AbreLector();
+            }
+
+
+        });
+        Looper.loop();
+
+
+    }
+
+
+public void AbreLector(){
+    IntentIntegrator integrator = new IntentIntegrator(Pantalla_Principal.this);
+    integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+    integrator.setPrompt("Escanea El Codigo Qr");
+    integrator.setCameraId(0);
+    integrator.setBeepEnabled(false);
+    integrator.setCaptureActivity(LectorPortrait.class);
+    integrator.setBarcodeImageEnabled(false);
+    integrator.setOrientationLocked(false);
+    integrator.initiateScan();
+}
 
 
 

@@ -22,6 +22,10 @@
   <component name="ChangeListManager">
     <list default="true" id="290615ca-ec24-409b-975e-ba7c27f3df4d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/release/VerisAppDespachos-release.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +33,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5_API_R" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_API_R" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -66,14 +70,14 @@
   <component name="PropertiesComponent">
     <property name="ApkExportedModule" value="VerisAppDespachos" />
     <property name="BundleExportedModule" value="VerisAppDespachos" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="HPV156QS" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-24T20:04:13.866Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_API_R" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-26T00:07:36.242Z" />
     <property name="ExportApk.ApkPath" value="C:\Workspaces\Android\Veris-Despachos-App\VerisAppDespachos" />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="ExportApk.SignV2" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/VerisAppDespachos/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Codigos Abiertos/PESO-SALUDBALE-APP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
