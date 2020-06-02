@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
 import edmt.dev.verisdespachosapp.ApiS.Preferencias;
-import edmt.dev.verisdespachosapp.ApiS.Sucursales;
+import edmt.dev.verisdespachosapp.Atributos.Sucursales;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;

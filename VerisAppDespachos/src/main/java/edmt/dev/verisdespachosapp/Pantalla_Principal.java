@@ -17,14 +17,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.gson.JsonObject;
-import com.google.zxing.Result;
+
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
 import edmt.dev.verisdespachosapp.ApiS.Preferencias;
@@ -122,6 +120,7 @@ public class Pantalla_Principal extends AppCompatActivity {
             finish();
             super.onBackPressed();
             return;
+
         }else{
 
          Toast.makeText(getBaseContext(), "VUELVA A PULSAR PARA CERRAR SESIÓN", Toast.LENGTH_SHORT).show();
@@ -137,7 +136,7 @@ public class Pantalla_Principal extends AppCompatActivity {
         time time = new time();
         time.execute();
         Preferencias.savePreferenciaBoolean(Pantalla_Principal.this,false,"estado.buton.sesion");
-        Intent intent = new Intent(Pantalla_Principal.this,MainActivity.class);
+        Intent intent = new Intent(Pantalla_Principal.this, SplashScreen.class);
         startActivity(intent);
         finish();
     }
@@ -241,8 +240,14 @@ public class Pantalla_Principal extends AppCompatActivity {
                             Log.e("Token", "OBTENIDO ---> " +Token);
 
 
+
+
                             OkHttpClient client = new OkHttpClient();
+
+
                             JSONObject postData = new JSONObject();
+
+
 
                            // postData.put("argCodUsuario",Usuario);
                           //  postData.put("argNumeroTransaccion",Id.getText().toString().trim());
@@ -255,10 +260,8 @@ public class Pantalla_Principal extends AppCompatActivity {
 
                             Request post = new Request.Builder()
                                     .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/farmaciaDomicilio/actualizarPickingTransaccion?argNumeroTransaccion="+Id.getText().toString().trim()+"&argCodUsuario="+Usuario+"&argCodSucursal="+CodigoSucursal)
-
                                     .post(postBody)
                                     .addHeader("Authorization", "Bearer "+Token)
-
                                     .build();
                             Log.e("POSTBODY","-------->"+postBody);
                             Log.e("POST","-------->" +post);
@@ -284,20 +287,14 @@ public class Pantalla_Principal extends AppCompatActivity {
 
                                     try {
 
-
-
-
                                         //CAPTURO EL JSON QUE ME RETORNA EL SERVICIO
                                         JSONObject jsonObject = new JSONObject(responseBody.string());
 
 
-
                                                     if(jsonObject.getString("mensaje").equalsIgnoreCase("OK")) {
-
 
                                                         progressDialog.dismiss();
                                                         MensajeExito();
-
 
 
                                                     }else if(jsonObject.getString("mensaje").equalsIgnoreCase("No existe el codigo de solicitud o numero de transaccion. \nMensaje generado desde la aplicacion >>. MGM_K_ORD_SERV_FARMACIA.MGM_UPT_PIKING_TRANS")){
@@ -845,7 +842,8 @@ public class Pantalla_Principal extends AppCompatActivity {
     }
 
 
-public void AbreLector(){
+    public void AbreLector(){
+
     IntentIntegrator integrator = new IntentIntegrator(Pantalla_Principal.this);
     integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
     integrator.setPrompt("Escanea El Codigo Qr");
@@ -855,6 +853,7 @@ public void AbreLector(){
     integrator.setBarcodeImageEnabled(false);
     integrator.setOrientationLocked(false);
     integrator.initiateScan();
+
 }
 
 

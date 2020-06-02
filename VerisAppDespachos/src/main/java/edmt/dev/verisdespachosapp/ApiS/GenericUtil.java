@@ -21,7 +21,7 @@ public class GenericUtil {
     public static void mostrarMensajeError(Context context, String strMensaje, String strTitulo){
         new AlertDialog.Builder(context)
                 //.setIcon(R.mipmap.ic_exit_to_app_black_36dp)
-                .setTitle("Acceso Denegaddo, Usted es un Cliente")
+                .setTitle(strTitulo)
                 .setMessage(strMensaje)
                 .setPositiveButton("Aceptar",
                         new DialogInterface.OnClickListener() {

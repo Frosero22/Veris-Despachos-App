@@ -15,7 +15,7 @@ public interface ApisVeris {
 
 
     @POST("api/farmaciaDomicilio/actualizarPickingTransaccion")
-    Call<ResponseBody> EstadoPicking (@Query("argNumeroTransaccion") int IdTransaccion, @Query("argCodUsuario") String Usuario, @Query("argCodSucursal") int CodSucursal);
+    Call<ResponseBody> EstadoPicking (@Query("argNumeroTransaccion") String IdTransaccion, @Query("argCodUsuario") String Usuario, @Query("argCodSucursal") int CodSucursal);
 
     @GET("/api/farmaciaDomicilio/rolesPorSucursalUsuario")
     Call<ResponseBody> ObtenerRoles(@Query("argCodEmpresa") String CodEmpresa ,@Query("argCodSucursal") String CodSucursal,@Query("argUsuario") String User);
