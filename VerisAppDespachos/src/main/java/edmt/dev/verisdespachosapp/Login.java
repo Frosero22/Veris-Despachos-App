@@ -32,6 +32,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import edmt.dev.verisdespachosapp.ApiS.GenericUtil;
 import edmt.dev.verisdespachosapp.ApiS.Preferencias;
@@ -46,7 +47,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 
-    public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     Button LoginD;
     CheckBox VerContraseña;
     String Token;
@@ -54,6 +55,7 @@ import okhttp3.ResponseBody;
     EditText User;
     EditText Pass;
      Integer val = 0;
+    private final OkHttpClient client = new OkHttpClient();
 
         public static final String PREFERENCE_ESTADO_BUTTON_SESION = "estado.buton.sesion";
 
@@ -128,13 +130,20 @@ import okhttp3.ResponseBody;
     }
 
 //TOKEN NECESARIO PARA TODOS LOS SERVICIOS RESTANTES - INACTIVO -
-    public String GeneraToken(){
+    public String GeneraToken()  {
 
 
     progressDialog = GenericUtil.barraCargando(Login.this,"Ingresando...");
 
-    OkHttpClient client = new OkHttpClient();
+        OkHttpClient cliente = client.newBuilder()
+
+                .connectTimeout(15, TimeUnit.SECONDS)
+                .readTimeout(15,TimeUnit.SECONDS)
+                .writeTimeout(15,TimeUnit.SECONDS)
+                .build();
+
     JsonObject postData = new JsonObject();
+
     postData.addProperty("user","wsphantomcajas");
     postData.addProperty("pass","CAS5789b86Mdr5Ph@nT0mC@j@$");
 
@@ -145,14 +154,16 @@ import okhttp3.ResponseBody;
             .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/authentications/login")
             .post(postBody)
             .addHeader("Authorization", "Basic  d3NwaGFudG9tY2FqYXM6Q0FTNTc4OWI4Nk1kcjVQaEBuVDBtQ0BqQCQ=" )
+
             .build();
 
-    client.newCall(post).enqueue(new Callback() {
+
+    cliente.newCall(post).enqueue(new Callback() {
         @Override
         public void onFailure(Call call, IOException e) {
             e.printStackTrace();
             progressDialog.dismiss();
-            MensajeErrorServico();
+            MensajeErrorServico(e);
             Log.e("Error","Error"+e);
         }
 
@@ -173,7 +184,7 @@ import okhttp3.ResponseBody;
                 Log.e("Ok","Token Generado");
             } catch (Exception e) {
                 progressDialog.dismiss();
-                MensajeErrorServico();
+                MensajeErrorServico((IOException) e);
                 e.printStackTrace();
                 Log.e("Error","Error--->"+e);
             }
@@ -193,7 +204,13 @@ import okhttp3.ResponseBody;
 
 
 
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient cliente = client.newBuilder()
+
+                .connectTimeout(15, TimeUnit.SECONDS)
+                .readTimeout(15,TimeUnit.SECONDS)
+                .writeTimeout(15,TimeUnit.SECONDS)
+                .build();
+
         JSONObject postData = new JSONObject();
 
 
@@ -213,13 +230,13 @@ import okhttp3.ResponseBody;
 
                 .build();
 
-        client.newCall(post).enqueue(new Callback() {
+        cliente.newCall(post).enqueue(new Callback() {
 
 
             @Override
             public void onFailure(Call call, IOException e) {
                 progressDialog.dismiss();
-                MensajeErrorServico();
+                MensajeErrorServico(e);
                 Log.e("Error", "Error al ejecutarr servicio" + e);
 
 
@@ -309,7 +326,11 @@ import okhttp3.ResponseBody;
 
 
 
-                                OkHttpClient client = new OkHttpClient().newBuilder()
+                                OkHttpClient cliente = client.newBuilder()
+
+                                        .connectTimeout(15, TimeUnit.SECONDS)
+                                        .readTimeout(15,TimeUnit.SECONDS)
+                                        .writeTimeout(15,TimeUnit.SECONDS)
                                         .build();
 
 
@@ -321,12 +342,13 @@ import okhttp3.ResponseBody;
 
 
 
-                                client.newCall(request).enqueue(new Callback() {
+                                cliente.newCall(request).enqueue(new Callback() {
 
 
                                     @Override
                                     public void onFailure(Call call, IOException e) {
-                                        MensajeErrorServico();
+                                        MensajeErrorServico(e);
+                                        progressDialog.dismiss();
                                         Log.e("ERROR","----> "+call);
                                     }
 
@@ -413,7 +435,7 @@ import okhttp3.ResponseBody;
                                       }catch (Exception e){
                                           e.printStackTrace();
                                           progressDialog.dismiss();
-                                          MensajeErrorServico();
+                                          MensajeErrorServico((IOException) e);
                                           Log.e("ERROR","-------> " +e);
 
                                       }
@@ -440,8 +462,9 @@ import okhttp3.ResponseBody;
 
                 }catch (Exception e){
                     progressDialog.dismiss();
-                    MensajeErrorServico();
                     e.printStackTrace();
+                    MensajeErrorServico((IOException) e);
+
 
                 }
 
@@ -533,7 +556,7 @@ import okhttp3.ResponseBody;
 
 
 
-    public void MensajeErrorServico(){
+    public void MensajeErrorServico(IOException e){
         Looper.prepare();
         AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
 
@@ -549,7 +572,7 @@ import okhttp3.ResponseBody;
         dialogM.setCancelable(false);
 
         TextView txt = view.findViewById(R.id.text_error);
-        txt.setText("Error al Ejecutar el Servicio Web, Comuníquese con el Área de Sistemas");
+        txt.setText("Error al Ejecutar el Servicio Web "+e);
 
         Button Aceptar = view.findViewById(R.id.btn_acept);
         Aceptar.setOnClickListener(new View.OnClickListener() {
