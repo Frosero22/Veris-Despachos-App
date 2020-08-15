@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.veris.myapplication.MainActivity">
+
+    <item
+        android:id="@+id/menu_reiniciar_app"
+        android:orderInCategory="100"
+        android:title="Refrescar Aplicacion"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_cambiar_sucursal"
+        android:orderInCategory="100"
+        android:title="Cambiar Sucursal"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_cerar_sesion"
+        android:orderInCategory="100"
+        android:title="Cerrar Sesión"
+        app:showAsAction="never" />
+
+</menu>

@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="295dp"
-        android:layout_height="262dp"
+        android:layout_width="406dp"
+        android:layout_height="401dp"
         android:layout_gravity="center"
-        android:src="@drawable/versss" />
+        android:src="@drawable/logov" />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="edmt.dev.verisdespachosapp">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,7 +15,11 @@
         android:roundIcon="@mipmap/logo_veris_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.FullScreen">
-        <activity android:name=".PickUp.ListadoPickUp"></activity>
+        <activity
+            android:name=".PickUp.ListadoPickUp"
+            android:label="PickUp"
+            android:theme="@style/AppTheme">
+        </activity>
         <activity
             android:name=".SplashScreen"
             android:theme="@style/AppTheme.FullScreen">
@@ -26,18 +31,24 @@
         </activity>
         <activity
             android:name=".Pantalla_Principal"
-            android:label="Menú Principal"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
-            android:name=".Login"
+            android:name=".Pantalla_Login"
             android:label="Inicio de Sesión"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme">
+
+        </activity>
+
         <activity
             android:name=".LectorPortrait"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
-            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden">
+
+        </activity>
     </application>
 
 </manifest>

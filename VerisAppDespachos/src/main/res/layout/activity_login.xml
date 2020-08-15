@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:background="@color/fondo"
-    tools:context=".Login">
+    android:background="@color/white"
+    tools:context=".Pantalla_Login">
 
 
     <ScrollView
@@ -23,18 +23,18 @@
             >
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="76dp"
+                android:layout_width="145dp"
+                android:layout_height="101dp"
                 android:layout_gravity="center"
-                android:src="@drawable/veris" />
+                android:src="@drawable/iconoveris" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Veris Despachos"
-                android:textColor="#2979FF"
+                android:text="FARMACIA DESPACHOS"
+                android:textColor="#D32F2F"
                 android:textStyle="bold"
                 android:layout_gravity="center"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="40dp"
                 android:textSize="25dp"
                 />
 
@@ -43,7 +43,7 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="Usuario"
-                android:textColorHint="#2979FF"
+                android:textColorHint="#D32F2F"
                 android:layout_gravity="center"
                 android:drawableLeft="@drawable/ic_person"
                 android:drawablePadding="10dp"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="Contraseña"
-                android:textColorHint="#2979FF"
+                android:textColorHint="#D32F2F"
                 android:layout_gravity="center"
                 android:drawableLeft="@drawable/ic_person"
                 android:drawablePadding="10dp"
@@ -75,8 +75,8 @@
                 android:id="@+id/ver_contraseña"
                 android:layout_width="285dp"
                 android:layout_height="wrap_content"
-                android:textColor="#2979FF"
-                android:buttonTint="#2979FF"
+                android:textColor="#D32F2F"
+                android:buttonTint="#D32F2F"
                 android:layout_gravity="center"
                 android:textSize="20dp"
                 android:layout_marginTop="15dp"
@@ -89,6 +89,7 @@
                 android:layout_gravity="center"
                 android:text="Iniciar Sesion"
                 android:textColor="#fff"
+                android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button"
                 />

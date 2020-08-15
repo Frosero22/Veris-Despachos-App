@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -22,14 +23,11 @@
     </TextView>
 
 
-    <ListView
-        android:id="@+id/text_dialog"
-        android:layout_width="362dp"
-        android:layout_height="305dp"
-        android:layout_margin="42dp"
-        android:gravity="center"
-        android:textColor="#2979FF"
-        android:textSize="28sp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/Facrecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/card_view_detalle_fac"/>
 
     <LinearLayout
         android:layout_width="match_parent"

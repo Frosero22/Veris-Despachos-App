@@ -3,11 +3,14 @@ package edmt.dev.verisdespachosapp.PickUp;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edmt.dev.verisdespachosapp.Atributos.PickUp;
@@ -28,9 +31,28 @@ public class ListadoPickUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_pick_up);
 
+        buscar = findViewById(R.id.idbuscarempresac);
+        DetallePickUp = new ArrayList<>();
+
+        listAuxiliar = new ArrayList<>();
+
+        RvClientes = findViewById(R.id.idrecycler);
+
+        adapter = new AdapterPickUp(DetallePickUp,this);
+
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
 
+
+            }
+        });
+        LinearLayoutManager lm = new LinearLayoutManager(this);
+
+        RvClientes.setLayoutManager(lm);
+        RvClientes.setAdapter(adapter);
         buscar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

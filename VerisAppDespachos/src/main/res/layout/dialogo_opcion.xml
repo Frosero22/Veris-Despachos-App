@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="#2979FF"
+        android:background="#D32F2F"
         android:gravity="center"
         android:padding="8dp"
         android:src="@drawable/cosa" />
@@ -21,7 +21,7 @@
         android:layout_margin="42dp"
         android:gravity="center"
         android:text="Elija un método de picking"
-        android:textColor="#2979FF"
+        android:textColor="#D32F2F"
         android:textSize="28sp" />
 
     <LinearLayout
