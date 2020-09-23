@@ -12,7 +12,7 @@
         android:background="#D32F2F"
         android:gravity="center"
         android:padding="8dp"
-        android:src="@drawable/cosa" />
+        android:src="@drawable/caja" />
 
     <TextView
         android:id="@+id/text_dialog"

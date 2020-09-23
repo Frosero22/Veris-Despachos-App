@@ -337,7 +337,7 @@ public class Pantalla_Login extends AppCompatActivity {
 
                                 Request request = new Request.Builder()
                                         .url("https://servicioscajas.veris.com.ec/PhantomCajasWS/api/farmaciaDomicilio/rolesPorSucursalUsuario?argCodEmpresa=" + CodEmpresa + "&argCodSucursal=" + CodSucurusal + "&argUsuario=" + User.getText().toString())
-                                        .method("GET", null)
+                                        .method("GET",  null)
                                         .addHeader("Authorization", "Bearer " + Token)
                                         .build();
 

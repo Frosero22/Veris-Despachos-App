@@ -32,15 +32,7 @@
             android:layout_weight="2">
 
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="82dp"
-                android:layout_height="70dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="3dp"
-                android:layout_marginBottom="19dp"
-                app:srcCompat="@drawable/iconoveris" />
+
 
             <TextView
                 android:id="@+id/txt_Nombre"

@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Looper;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -62,6 +64,7 @@ public class Pantalla_Principal extends AppCompatActivity {
     TextView Nombres, Nsucursal;
     private final OkHttpClient client = new OkHttpClient();
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +91,8 @@ public class Pantalla_Principal extends AppCompatActivity {
       Log.e("PREFERENCIA", "-----> " + nombreSucursal);
 
        // CREO UNA VARIABLE Y GUARDO EN ELLA EL CODIGO DE LA SUCURSAL
-       int codSucursal = preferences.getInt("codSucursal", CodigoSucursal);
-       Log.e("PREFERENCIA", "CODIGO" + codSucursal);
+       CodigoSucursal = preferences.getInt("codSucursal", 0);
+       Log.e("PREFERENCIA", "CODIGO" + CodigoSucursal);
 
         //GUARDO EN UNA VARIABLE EL NOMBRE DEL USUARIO
         String nombreUsuario = preferences.getString("nombre", "");
@@ -465,6 +468,7 @@ public class Pantalla_Principal extends AppCompatActivity {
     }
 
     //EL PROCEDIMIENTO QUE SE LLEVA ACABO CUANDO SE ALCANZA LA HORA
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     public void Ejecutar() {
         time time = new time();
         time.execute();
@@ -481,6 +485,7 @@ public class Pantalla_Principal extends AppCompatActivity {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     public class time extends AsyncTask<Void, Integer, Boolean> {
 
         @Override

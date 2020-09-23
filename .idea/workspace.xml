@@ -20,29 +20,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="290615ca-ec24-409b-975e-ba7c27f3df4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_26_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_transition_26_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/PickUp/CardViewDetalle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xhdpi/fondo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xhdpi/iconoveris.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xhdpi/logov.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xhdpi/logovv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/card_view_detalle_fac.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/menu/menu_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" beforeDir="false" />
+    <list default="true" id="290615ca-ec24-409b-975e-ba7c27f3df4d" name="Default Changelist" comment="Ajuste Codigo Sucursal">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-mdpi/caja.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -53,52 +34,50 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__android_arch_lifecycle_runtime_1_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_cardview_v7_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_0_2_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_0_2_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_annotations_26_1_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_annotations_26_1_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v4_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v4_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_3_0_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_3_0_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_rules_1_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_rules_1_0_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_1_0_1_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_1_0_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_transition_26_1_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_transition_26_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_zxing_core_3_3_3_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_zxing_core_3_3_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_journeyapps_zxing_android_embedded_3_6_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_journeyapps_zxing_android_embedded_3_6_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp_okhttp_2_7_5_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp_okhttp_2_7_5_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_scalars_2_5_0_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_scalars_2_5_0_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__me_dm7_barcodescanner_core_1_8_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__me_dm7_barcodescanner_core_1_8_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__me_dm7_barcodescanner_zxing_1_8_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__me_dm7_barcodescanner_zxing_1_8_4_aar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Veris-Despachos-App.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Veris-Despachos-App.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/VerisAppDespachos.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/release/VerisAppDespachos-release.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/ApiS/ApisVeris.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/ApiS/GetAPIS.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Atributos/DetalleFactura.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Atributos/DetalleFactura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/Pantalla_Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/PickUp/ListadoPickUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/PickUp/ListadoPickUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/java/edmt/dev/verisdespachosapp/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-hdpi/button.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-hdpi/button.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-hdpi/edit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-hdpi/edit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-hdpi/ic_person.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-hdpi/ic_person.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxxhdpi/boton.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/drawable-xxxhdpi/boton.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_pantalla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/activity_pantalla.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/dialog_personalizado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/dialog_personalizado.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/dialogo_opcion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/dialogo_opcion.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/sucursales.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout-large/sucursales.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_listado_pick_up.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_listado_pick_up.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_pantalla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/activity_pantalla.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/card_view_pickup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/card_view_pickup.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialog_personalizado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialog_personalizado.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialogo_detalle_pickup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialogo_detalle_pickup.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialogo_opcion.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/dialogo_opcion.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/sucursales.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/layout/sucursales.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VerisAppDespachos/src/main/res/values/styles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/android/support/constraint/group-index.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/android/support/constraint/group-index.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/sdk-registry.xml/sdk-registry.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/lint-cache/sdk-registry.xml/sdk-registry.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_R" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_4_API_29" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -128,8 +107,8 @@
   </component>
   <component name="GenerateSignedApkSettings">
     <option name="EXPORT_PRIVATE_KEY" value="false" />
-    <option name="KEY_STORE_PATH" value="C:\Workspaces\Firmas Apps\fimaDespachos.jks" />
-    <option name="KEY_ALIAS" value="despachos" />
+    <option name="KEY_STORE_PATH" value="C:\Workspaces\Firmas Apps\fimaDespachosV.jks" />
+    <option name="KEY_ALIAS" value="veris" />
     <option name="REMEMBER_PASSWORDS" value="true" />
     <option name="BUILD_TARGET_KEY" value="apk" />
   </component>
@@ -148,7 +127,7 @@
     <property name="ExportApk.SignV2" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/VerisAppDespachos/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Firmas Apps/fimaDespachos.jks" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -171,29 +150,17 @@
       <recent name="edmt.dev.verisdespachosapp" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\drawable-mdpi" />
       <recent name="C:\Workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\drawable-xhdpi" />
       <recent name="C:\Workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res" />
       <recent name="C:\Workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\layout" />
       <recent name="C:\workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\layout-large" />
-      <recent name="C:\workspaces\Android\Veris-Despachos-App\VerisAppDespachos\src\main\res\layout" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="edmt.dev.verisdespachosapp.PickUp" />
       <recent name="edmt.dev.verisdespachosapp.ApiS" />
       <recent name="Utils" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -441,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591212488643</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Integracion PhantomX">
+      <created>1597511050309</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1597511050309</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -456,9 +430,22 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Generacion de Token Incorporada" />
     <MESSAGE value="Generacion de Token Incorporada 2" />
     <MESSAGE value="Generacion de Token&#10;Pantalla para celular arreglada" />
     <MESSAGE value="Validacion de Inicio de Sesion Incorporado" />
@@ -483,6 +470,33 @@
     <MESSAGE value="SESION GUARDADA&#10;LECTOR REPARADO" />
     <MESSAGE value="Lector se levanta cada vez que se realiza un picking" />
     <MESSAGE value="Time out colocado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Time out colocado" />
+    <MESSAGE value="Integracion PhantomX" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integracion PhantomX" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="257" y="0" key="CommitChangelistDialog2" timestamp="1600882091124">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="257" y="0" key="CommitChangelistDialog2/0.0.1366.728/-547.-1080.2560.1040@0.0.1366.728" timestamp="1600882091124" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1600881717893">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/-547.-1080.2560.1040@0.0.1366.728" timestamp="1600881717893" />
+    <state width="1323" height="156" key="GridCell.Tab.0.bottom" timestamp="1600881606994">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="156" key="GridCell.Tab.0.bottom/0.0.1366.728/-547.-1080.2560.1040@0.0.1366.728" timestamp="1600881606994" />
+    <state width="1323" height="156" key="GridCell.Tab.0.center" timestamp="1600881606994">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="156" key="GridCell.Tab.0.center/0.0.1366.728/-547.-1080.2560.1040@0.0.1366.728" timestamp="1600881606994" />
+    <state width="1323" height="156" key="GridCell.Tab.0.left" timestamp="1600881606994">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="156" key="GridCell.Tab.0.left/0.0.1366.728/-547.-1080.2560.1040@0.0.1366.728" timestamp="1600881606994" />
+    <state width="1323" height="156" key="GridCell.Tab.0.right" timestamp="1600881606994">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="156" key="GridCell.Tab.0.right/0.0.1366.728/-547.-1080.2560.1040@0.0.1366.728" timestamp="1600881606994" />
   </component>
 </project>
